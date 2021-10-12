@@ -4,7 +4,7 @@
 #' @param new_df_name Set the name of the new dataframe..
 #' @param long_df Specify the name of the long dataframe you wish to format..
 #' @param date Specify the name of the date column.
-#' @param value Specify the name of the value you'd like to spread across the wide dataframe..
+#' @param value Specify the name of the value you'd like to spread across the wide dataframe.
 #' @keywords choropleth
 #' @export
 #' @examples
