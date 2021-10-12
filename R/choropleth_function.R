@@ -15,5 +15,5 @@ choropleth <- function(long_df, date, value){
     tidyverse::group_by(date) %>%
     tidyverse::mutate(idx = row_number()) %>%
     tidyverse::spread(date, value) %>%
-    tidyverse::select(-idx)
+    dplyr::select(-idx)
 }
