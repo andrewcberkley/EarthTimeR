@@ -4,16 +4,16 @@
 \alias{choropleth}
 \title{A Choropleth Function}
 \usage{
-choropleth(new_df_name, long_df, date, value)
+choropleth(long_df, date, value)
 }
 \arguments{
-\item{new_df_name}{Set the name of the new dataframe..}
-
 \item{long_df}{Specify the name of the long dataframe you wish to format..}
 
 \item{date}{Specify the name of the date column.}
 
 \item{value}{Specify the name of the value you'd like to spread across the wide dataframe.}
+
+\item{new_df_name}{Set the name of the new dataframe..}
 }
 \description{
 This function allows you to format your long dataframe for an EarthTime choropleth.
