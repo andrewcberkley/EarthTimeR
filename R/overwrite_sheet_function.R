@@ -27,7 +27,7 @@
    place_name_here <- deparse(substitute(dataframe))  # Apply deparse & substitute # Show object name as character string
    
    if(display_sheet_in_browser==FALSE){
-     print(paste0("The data frame '", place_name_here, "' has been uploaded and is ready to be used in EarthTime!"))
+     print(paste0("CONGRATULATIONS: The data frame '", place_name_here, "' has been uploaded and is ready to be used in EarthTime!"))
    }
    else{
      googlesheets4::gs4_browse(ss)
@@ -36,7 +36,7 @@
      googledrive::drive_share_anyone(googledrive::as_id(ss))
    }
    else{
-     print(paste0("You've chosen to not make  '", place_name_here, "' available to anyone with the link. Please keep in mind that you will need to later change permissions to 'anyone with the link' if you want this data layer to be available in EarthTime!"))
+     print(paste0("WARNING: You've chosen to not make  '", place_name_here, "' available to anyone with the link. Please keep in mind that you will need to later change permissions to 'anyone with the link' if you want this data layer to be available in EarthTime!"))
    }
    print(googlesheets4::sheet_properties(ss))
 }
