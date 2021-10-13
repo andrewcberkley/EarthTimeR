@@ -14,9 +14,13 @@ Encoding: UTF-8
 Imports:
   tidyr,
   dplyr,
-  googlesheets4
-Suggests:
+  googlesheets4,
   googledrive,
+  openssl,
+  mime,
+  curl,
+  gargle
+Suggests:
   tidyverse,
   readr
 LazyData: true

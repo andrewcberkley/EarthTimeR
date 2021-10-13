@@ -13,5 +13,5 @@
 
 overwrite_sheet  <- function(dataframe, spreadsheetId, sheetId){
   ss <- googlesheets4::as_sheets_id(paste0("https://docs.google.com/spreadsheets/d/", spreadsheetId, "/edit#gid=", sheetId))
-  googlesheets4::sheet_write(dataframe, ss = ss, sheet_name = "Sheet1")
+  googlesheets4::sheet_write(dataframe, ss = ss, sheet = sheet_name)
 }
