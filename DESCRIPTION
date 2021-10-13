@@ -1,5 +1,5 @@
 Package: EarthTimeR
-Title: Tools for formatting data and ingesting it into EarthTime.
+Title: Tools for formatting data and ingesting it into EarthTime
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Andrew",
@@ -13,7 +13,12 @@ License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
 Encoding: UTF-8
 Imports:
   tidyr,
-  dplyr (>= 0.7.0)
+  dplyr,
+  googlesheets4
+Suggests:
+  googledrive,
+  tidyverse,
+  readr
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2

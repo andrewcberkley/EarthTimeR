@@ -1,8 +1,8 @@
 #' A Choropleth Function
 #'
-#' This function allows you to format your long data frame for an EarthTime choropleth.
+#' This function allows for the transformation of a long dataframe into a wide dataframe for an EarthTime choropleth.
 
-#' @param long_df Specify the name of the long data frame you wish to format.
+#' @param dataframe Specify the name of the long data frame you wish to format.
 #' @param date Specify the name of the date column.
 #' @param value Specify the name of the value you'd like to spread across the wide data frame.
 #' @keywords choropleth
@@ -10,9 +10,9 @@
 #' @examples
 #' choropleth()
 
-choropleth <- function(long_df, date, value){
-  long_df |>
-    dplyr::group_by(long_df$date) |>
+choropleth <- function(dataframe, date, value){
+  dataframe |>
+    dplyr::group_by(dataframe$date) |>
     dplyr::mutate(idx = dplyr::row_number()) |>
     tidyr::spread(date, value) |>
     dplyr::select(-idx)
