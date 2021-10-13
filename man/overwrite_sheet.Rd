@@ -4,7 +4,7 @@
 \alias{overwrite_sheet}
 \title{An Overwrite Sheet Function}
 \usage{
-overwrite_sheet(dataframe, spreadsheetId, sheetId)
+overwrite_sheet(dataframe, spreadsheetId, sheetId, sheet_name)
 }
 \arguments{
 \item{dataframe}{Specify the name of data frame you wish to upload.}
