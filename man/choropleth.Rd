@@ -7,16 +7,14 @@
 choropleth(long_df, date, value)
 }
 \arguments{
-\item{long_df}{Specify the name of the long dataframe you wish to format..}
+\item{long_df}{Specify the name of the long data frame you wish to format.}
 
 \item{date}{Specify the name of the date column.}
 
-\item{value}{Specify the name of the value you'd like to spread across the wide dataframe.}
-
-\item{new_df_name}{Set the name of the new dataframe..}
+\item{value}{Specify the name of the value you'd like to spread across the wide data frame.}
 }
 \description{
-This function allows you to format your long dataframe for an EarthTime choropleth.
+This function allows you to format your long data frame for an EarthTime choropleth.
 }
 \examples{
 choropleth()
