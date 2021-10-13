@@ -1,10 +1,10 @@
 #' A Choropleth Function
 #'
-#' This function allows you to format your long dataframe for an EarthTime choropleth.
-#' @param new_df_name Set the name of the new dataframe..
-#' @param long_df Specify the name of the long dataframe you wish to format..
+#' This function allows you to format your long data frame for an EarthTime choropleth.
+
+#' @param long_df Specify the name of the long data frame you wish to format..
 #' @param date Specify the name of the date column.
-#' @param value Specify the name of the value you'd like to spread across the wide dataframe.
+#' @param value Specify the name of the value you'd like to spread across the wide data frame.
 #' @keywords choropleth
 #' @export
 #' @examples
