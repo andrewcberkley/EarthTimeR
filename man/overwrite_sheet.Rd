@@ -4,7 +4,14 @@
 \alias{overwrite_sheet}
 \title{An Overwrite Sheet Function}
 \usage{
-overwrite_sheet(dataframe, spreadsheetId, sheetId, sheet_name)
+overwrite_sheet(
+  dataframe,
+  spreadsheetId,
+  sheetId,
+  sheet_name,
+  display_sheet_in_browser = FALSE,
+  share_with_anyone = TRUE
+)
 }
 \arguments{
 \item{dataframe}{Specify the name of data frame you wish to upload.}
@@ -13,7 +20,11 @@ overwrite_sheet(dataframe, spreadsheetId, sheetId, sheet_name)
 
 \item{sheetId}{Specify the sheet that you would like to overwrite. "sheetId" is lso referred to as Google Grid ID, or "gid".}
 
-\item{sheet_name}{If there is a different sheet name other than "Sheet1", specify it here; otherwise, it will automatically default to "Sheet1".}
+\item{sheet_name}{If there is a different sheet name other than "Sheet1", specify it here; otherwise, it will overwrite or create "Sheet1".}
+
+\item{display_sheet_in_browser}{Option to open browser to see the new data layer in Google Sheets. Defaults to FALSE.}
+
+\item{share_with_anyone}{Option to grant anyone with the link permission to view this data set. This is necessary for data layers to be read into the EarthTime engine. Defaults to TRUE.}
 }
 \description{
 This function allows you to upload and overwrite an EarthTime data layer in Google Sheets.
