@@ -9,6 +9,6 @@
 #' @examples
 #' initial_ingestion()
 
-initial_ingestion2  <- function(dataframe, data_layer_name){
+initial_ingestion  <- function(dataframe, data_layer_name){
   googlesheets4::gs4_create(name = data_layer_name, sheets = data_layer_name)
 }

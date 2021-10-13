@@ -2,5 +2,5 @@
 
 export(choropleth)
 export(google_account_authorization)
-export(initial_ingestion2)
+export(initial_ingestion)
 export(overwrite_sheet)
