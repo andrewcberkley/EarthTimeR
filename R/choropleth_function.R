@@ -11,9 +11,9 @@
 #' choropleth()
 
 choropleth <- function(long_df, date, value){
-  long_df %>%
-    dplyr::group_by(date) %>%
-    mutate(idx = row_number()) %>%
-    spread(date, value) %>%
-    select(-idx)
+  long_df |>
+    dplyr::group_by(long_df$date) |>
+    dplyr::mutate(idx = dplyr::row_number()) |>
+    tidyr::spread(date, value) |>
+    dplyr::select(-idx)
 }
