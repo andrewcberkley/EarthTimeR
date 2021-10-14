@@ -59,5 +59,3 @@ generate_csv_layer_row  <- function(Enabled_Share_Link_Identifier = TRUE,	Catego
   write.table(x, file, append = FALSE, sep = ""\t", dec = ".",
               row.names = FALSE, col.names = FALSE)
   }
-
-#print('TRUE\tmaking_a_point_flow_map\tMaking EarthTime Maps\tPoint Flow\tCREATE Lab\t2013\t2018\t1\thttps://aberkley.earthtime.org/misc/making-a-point-flow-map/us-exports.bin\t\t\tpoint-flow\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t8\tWebGLVectorTile2.pointFlowVertexShader\tWebGLVectorTile2.pointFlowFragmentShader\tWebGLVectorTile2.prototype._drawPointFlow\t0.25\t0.5')
