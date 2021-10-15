@@ -10,5 +10,6 @@
 #' initial_ingestion()
 
 initial_ingestion  <- function(dataframe, data_layer_name){
-  googlesheets4::gs4_create(name = data_layer_name, sheets = data_layer_name)
+  Sheet1 <- dataframe
+  googlesheets4::gs4_create(name = data_layer_name, sheets = Sheet1)
 }
