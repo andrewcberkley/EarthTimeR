@@ -38,5 +38,6 @@ overwrite_sheet  <- function(dataframe, spreadsheetId, sheetId, sheet_name = NUL
    else{
      print(paste0("WARNING: You've chosen to not make  '", place_name_here, "' available to anyone with the link. Please keep in mind that you will need to later change permissions to 'anyone with the link' if you want this data layer to be available in EarthTime!"))
    }
-   print(googlesheets4::sheet_properties(ss))
+   GID <- print(googlesheets4::sheet_properties(ss)[1,3] #Extracts GID of first sheet in the workbook-ideally this should be the only sheet in the workbook )
+   print(ss)
 }
