@@ -14,8 +14,7 @@ generate_csv_layer_row(
   Start_Date,
   End_Date,
   Step = 1,
- 
-    URL = "https://docs-proxy.cmucreatelab.org/spreadsheets/d/xxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-xxx/export?format=csv&gid=0123456789",
+  URL,
   Scaling,
   Color_Scaling = NULL,
   Map_Type,
@@ -151,7 +150,7 @@ generate_csv_layer_row(
 \item{Draw_Layer_Function}{CREATE LAB special use case. Defaults to NULL.}
 }
 \description{
-This function allows for the generation of a new data layer for input into the EarthTime CSV layers sheet.
+Generally used after the overwrite_sheet_function(), the generate_csv_layer_row() function allows for the generation of a new data layer for input into the EarthTime CSV layers sheet. This function is usually followed up by append_new_data_layer_to_CSV_layers().
 }
 \examples{
 append_new_data_layer_to_CSV_layers()

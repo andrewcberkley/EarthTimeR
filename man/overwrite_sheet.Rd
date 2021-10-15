@@ -8,7 +8,7 @@ overwrite_sheet(
   dataframe,
   spreadsheetId,
   sheetId,
-  sheet_name,
+  sheet_name = NULL,
   display_sheet_in_browser = FALSE,
   share_with_anyone = TRUE
 )

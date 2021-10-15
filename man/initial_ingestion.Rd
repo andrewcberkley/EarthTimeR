@@ -4,7 +4,12 @@
 \alias{initial_ingestion}
 \title{An Initial Ingestion Function}
 \usage{
-initial_ingestion(dataframe, data_layer_name)
+initial_ingestion(
+  dataframe,
+  data_layer_name,
+  display_sheet_in_browser = FALSE,
+  share_with_anyone = TRUE
+)
 }
 \arguments{
 \item{dataframe}{Specify the name of the data frame you wish to upload.}
