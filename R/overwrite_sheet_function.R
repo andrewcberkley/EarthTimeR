@@ -41,7 +41,7 @@ overwrite_sheet  <- function(dataframe, spreadsheetId, sheetId, sheet_name = NUL
    GID <- googlesheets4::sheet_properties(ss)[1,3] #Extracts GID of first sheet in the workbook-ideally this should be the only sheet in the workbook
    workbook_id <- read.table(text=gsub("\\ID:", " ", ss))
    
-   assign(dataframe, "_URL", paste0("https://docs-proxy.cmucreatelab.org/spreadsheets/d/",workbook_id,"/export?format=csv&gid=",GID), envir = globalenv())
+   assign(paste0(place_name_here, "_URL"), paste0("https://docs-proxy.cmucreatelab.org/spreadsheets/d/",workbook_id,"/export?format=csv&gid=",GID), envir = globalenv())
    
    print(paste0("The data layer's URL is ", "https://docs-proxy.cmucreatelab.org/spreadsheets/d/",workbook_id,"/export?format=csv&gid=",GID, "and can now be found in your Global Environment."))
    
