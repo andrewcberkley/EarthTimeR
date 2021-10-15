@@ -81,7 +81,7 @@ generate_csv_layer_row(
 
 \item{Map_Type}{Type of map to visualize. Acceptable variables include: "Choropleth", "Bubble", "Bivalent Bubble", "Point", "Point Flow"}
 
-\item{Color}{RGB color value. Acceptable format is "\link{0.0, 0.0, 0.0}"}
+\item{Color}{RGB color value. Acceptable format is "0.0, 0.0, 0.0"}
 
 \item{External_GeoJSON}{Link to external GeoJSON file. Defaults to NULL.}
 

@@ -15,7 +15,7 @@
 #' @param Scaling d3-scale variables. Scales are a convenient abstraction for a fundamental task in visualization: mapping a dimension of abstract data to a visual representation. Although most often used for position-encoding quantitative data, such as mapping a measurement in meters to a position in pixels for dots or color spectrum in EarthTime; moreover, these scales are meant to represent the quantitative data ingested into EarthTime. Depending on the distribution, one should consider the following scales: "Linear", "Power", "Log", or "SquareRoot". Inputting the aforementioned scale variables will output a domain of "minValue, maxValue" with a range of "O,100" for the d3 function.
 #' @param Color_Scaling CREATE LAB special use case. Defaults to NULL.
 #' @param Map_Type Type of map to visualize. Acceptable variables include: "Choropleth", "Bubble", "Bivalent Bubble", "Point", "Point Flow"
-#' @param Color RGB color value. Acceptable format is "[0.0, 0.0, 0.0]"
+#' @param Color RGB color value. Acceptable format is "0.0, 0.0, 0.0"
 #' @param External_GeoJSON Link to external GeoJSON file. Defaults to NULL.
 #' @param Name_Key Data column name for GEOJSON shapes. Defaults to NULL.
 #' @param Show_Graph CREATE LAB special use case. Defaults to NULL.
