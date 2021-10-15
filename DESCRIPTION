@@ -19,7 +19,8 @@ Imports:
   openssl,
   mime,
   curl,
-  gargle
+  gargle,
+  crayon
 Suggests:
   tidyverse,
   readr
