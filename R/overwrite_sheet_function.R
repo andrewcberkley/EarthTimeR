@@ -27,7 +27,7 @@ overwrite_sheet  <- function(dataframe, spreadsheetId, sheetId, sheet_name = NUL
    place_name_here <- deparse(substitute(dataframe))  # Apply deparse & substitute # Show object name as character string
    
    if(display_sheet_in_browser==FALSE){
-     print(paste0("CONGRATULATIONS: The data frame '", place_name_here, "' has been uploaded and is ready to be used in EarthTime!"))
+     print(paste0("CONGRATULATIONS: The data for '", place_name_here, "' has been uploaded and is ready to be used in EarthTime!"))
    }
    else{
      googlesheets4::gs4_browse(ss)
@@ -43,6 +43,6 @@ overwrite_sheet  <- function(dataframe, spreadsheetId, sheetId, sheet_name = NUL
    
    assign(paste0(place_name_here, "_URL"), paste0("https://docs-proxy.cmucreatelab.org/spreadsheets/d/",workbook_id,"/export?format=csv&gid=",GID), envir = globalenv())
    
-   print(paste0("The data layer's URL is ", "https://docs-proxy.cmucreatelab.org/spreadsheets/d/",workbook_id,"/export?format=csv&gid=",GID, "and can now be found in your Global Environment."))
+   print(paste0("The data for '", place_name_here, "' has been uploaded in Google Sheets. Its URL is ", "'https://docs-proxy.cmucreatelab.org/spreadsheets/d/",workbook_id,"/export?format=csv&gid=",GID, "' and can now be copied from the Global Environment."))
    
 }
