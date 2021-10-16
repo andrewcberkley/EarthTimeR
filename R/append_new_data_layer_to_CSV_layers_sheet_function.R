@@ -10,6 +10,6 @@
 #' @examples
 #' append_new_data_layer_to_CSV_layers()
 
-append_new_data_layer_to_CSV_layers  <- function(csv_layer, ss, sheet = "CSV Layers"){
-  googlesheets4::sheets_append(data = csv_layer, sheets_get(ss), sheet = "CSV Layers")
+append_new_data_layer_to_CSV_layers  <- function(ss, csv_layer, sheet = "CSV Layers"){
+  googlesheets4::sheet_append(ss, data = csv_layer, sheet = "CSV Layers")
 }

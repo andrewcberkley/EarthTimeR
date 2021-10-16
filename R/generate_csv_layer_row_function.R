@@ -70,7 +70,18 @@ generate_csv_layer_row  <- function(Enabled_Share_Link_Identifier = TRUE, Share_
                     End_Date,	
                     Step,	
                     URL, 
-                    Scaling, 
+                    
+                    
+                    
+                    #Scaling, 
+                    if(Scaling=="sqrt"){
+                      paste0("d3.scaleSqrt().domain([minValue, maxValue]).range([0,1])")
+                    }
+                    else{
+                      paste0("d3.scalePow().domain([minValue, maxValue]).range([0,1])")
+                    },
+                    
+                    
                     Color_Scaling,	
                     Map_Type,	
                     Color,	
