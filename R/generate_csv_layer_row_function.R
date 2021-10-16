@@ -55,9 +55,63 @@
 #' @examples
 #' append_new_data_layer_to_CSV_layers()
 
-generate_csv_layer_row  <- function(Enabled_Share_Link_Identifier = TRUE,	Category,	Name,	Credits, Base_Layer = NULL, Custom_slider_ticks = NULL,	Start_Date,	End_Date,	Step = 1,	URL, Scaling, Color_Scaling = NULL,	Map_Type,	Color,	External_GeoJSON = NULL,	Name_Key = NULL,	Show_Graph = NULL,	Graph_Title = NULL,	Graph_Plot_Colors = NULL,	Graph_Plots_First_Visible = NULL,	Graph_X_Axis_Label = NULL,	Graph_Y_Axis_Label = NULL,	Graph_Y_Axis_Min = NULL,	Graph_Y_Axis_Max = NULL,	Graph_X_Axis_Label_Interval = NULL,	Legend_Content = "auto", Legend_Key, Load_Data_Function = NULL,	Set_Data_Function = NULL,	Number_of_Levels = NULL, Number_of_Attributes = NULL,	Vertex_Shader = NULL,	Fragment_Shader = NULL,	Draw_Function = NULL,	Playback_Rate = 1,	Master_Playback_Rate = 1,	Colormap_Src = "https://tiles.earthtime.org/colormaps/*.png", Layer_Description = NULL, Featured_Themes = NULL,	Draw_Options = NULL, Set_Data_Options = NULL, Extras_Options = NULL,	Draw_Order = NULL, Timeline_Type = NULL, Layer_Constraints = NULL,	Mapbox = NULL, Draw_Layer_Function = NULL){
-  write.table(x, file, append = FALSE, sep = "\t", dec = ".",
-              row.names = FALSE, col.names = FALSE)
-  }
+generate_csv_layer_row  <- function(Enabled_Share_Link_Identifier = TRUE, Share_Link_Identifier, Category,	Name,	Credits, Base_Layer = NA, Custom_slider_ticks = NA,	Start_Date,	End_Date,	Step = 1,	URL, Scaling, Color_Scaling = NA,	Map_Type,	Color,	External_GeoJSON = NA,	Name_Key = NA,	Show_Graph = NA,	Graph_Title = NA,	Graph_Plot_Colors = NA,	Graph_Plots_First_Visible = NA,	Graph_X_Axis_Label = NA,	Graph_Y_Axis_Label = NA,	Graph_Y_Axis_Min = NA,	Graph_Y_Axis_Max = NA,	Graph_X_Axis_Label_Interval = NA,	Legend_Content = "auto", Legend_Key, Load_Data_Function = NA,	Set_Data_Function = NA,	Number_of_Levels = NA, Number_of_Attributes = NA,	Vertex_Shader = NA,	Fragment_Shader = NA,	Draw_Function = NA,	Playback_Rate = 1,	Master_Playback_Rate = 1,	Colormap_Src, Layer_Description = NA, Featured_Themes = NA,	Draw_Options = NA, Set_Data_Options = NA, Extras_Options = NA,	Draw_Order = NA, Timeline_Type = NA, Layer_Constraints = NA,	Mapbox = NA, Draw_Layer_Function = NA){
+  
+  dat <- as.data.frame(matrix(ncol=46, nrow=1))
+  
+  dat <- data.frame(Enabled_Share_Link_Identifier,
+                    Share_Link_Identifier,
+                    Category,	
+                    Name,	
+                    Credits, 
+                    Base_Layer, 
+                    Custom_slider_ticks,	
+                    Start_Date,	
+                    End_Date,	
+                    Step,	
+                    URL, 
+                    Scaling, 
+                    Color_Scaling,	
+                    Map_Type,	
+                    Color,	
+                    External_GeoJSON,	
+                    Name_Key, 
+                    Show_Graph,
+                    Graph_Title,	
+                    Graph_Plot_Colors,	
+                    Graph_Plots_First_Visible,	
+                    Graph_X_Axis_Label,	
+                    Graph_Y_Axis_Label,	
+                    Graph_Y_Axis_Min,	
+                    Graph_Y_Axis_Max,	
+                    Graph_X_Axis_Label_Interval,	
+                    Legend_Content, 
+                    Legend_Key, 
+                    Load_Data_Function,	
+                    Set_Data_Function,	
+                    Number_of_Levels, 
+                    Number_of_Attributes,	
+                    Vertex_Shader,	
+                    Fragment_Shader,	
+                    Draw_Function,	
+                    Playback_Rate,	
+                    Master_Playback_Rate,	
+                    Colormap_Src = paste0("https://tiles.earthtime.org/colormaps/", Colormap_Src, ".png"),
+                    Layer_Description, 
+                    Featured_Themes,	
+                    Draw_Options, 
+                    Set_Data_Options, 
+                    Extras_Options,	
+                    Draw_Order, 
+                    Timeline_Type, 
+                    Layer_Constraints,	
+                    Mapbox, 
+                    Draw_Layer_Function)
+  
+  dat[is.na(dat)] <- ""
+  
+  assign(paste0("csv_sheet_row-", Share_Link_Identifier), dat, envir = globalenv())
+  
+}
 
-#print('TRUE\tmaking_a_point_flow_map\tMaking EarthTime Maps\tPoint Flow\tCREATE Lab\t2013\t2018\t1\thttps://aberkley.earthtime.org/misc/making-a-point-flow-map/us-exports.bin\t\t\tpoint-flow\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t8\tWebGLVectorTile2.pointFlowVertexShader\tWebGLVectorTile2.pointFlowFragmentShader\tWebGLVectorTile2.prototype._drawPointFlow\t0.25\t0.5')
+
