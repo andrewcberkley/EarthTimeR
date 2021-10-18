@@ -5,12 +5,12 @@
 \alias{append_new_data_layer_to_CSV_layers}
 \title{An Append New Data Layer to CSV Layers Sheet Function}
 \usage{
-append_new_data_layer_to_CSV_layers(csv_layer, ss, sheet = "CSV Layers")
+append_new_data_layer_to_CSV_layers(ss, csv_layer, sheet = "CSV Layers")
 }
 \arguments{
-\item{csv_layer}{Specify the name of the csv layer output from previous functions.}
-
 \item{ss}{Something that identifies a Google Sheet: its file ID, a URL from which we can recover the ID, an instance of googlesheets4_spreadsheet (returned by sheets_get()), or a dribble, which is how googledrive represents Drive files. Processed through as_sheets_id().}
+
+\item{csv_layer}{Specify the name of the csv layer output from previous functions.}
 
 \item{sheet}{Sheet to append to, in the sense of "worksheet" or "tab". You can identify a sheet by name, with a string, or by position, with a number.}
 }
