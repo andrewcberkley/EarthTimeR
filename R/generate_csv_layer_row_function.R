@@ -66,9 +66,9 @@ generate_csv_layer_row  <- function(Enabled_Share_Link_Identifier = TRUE, Share_
                     Credits, 
                     Base_Layer, 
                     Custom_slider_ticks,	
-                    Start_Date,	
-                    End_Date,	
-                    Step,	
+                    as.numeric(Start_Date),	
+                    as.numeric(End_Date),	
+                    as.numeric(Step),	
                     URL, 
                     
                     
