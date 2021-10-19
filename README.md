@@ -30,7 +30,13 @@ For a complete overview of those groups, users can check out tutorials [here](ht
 
 ## Auth
 
-It is highly recommend that users install the [`tidyverse`](https://www.tidyverse.org/) opinionated collection of R packages designed for data science as these packages provide the foundation for the `EarthTimeR` package and thus share an underlying approach design philosophy, grammar, and data structures; moreover, to interact with your EarthTime layers sheet, the `EarthTimeR` package draws specifically on functions found in the `googlesheets4` and `googledrive` packages.
+It is highly recommend that users install the [`tidyverse`](https://www.tidyverse.org/) opinionated collection of R packages designed for data science as these packages provide the foundation for the `EarthTimeR` package and thus share an underlying approach design philosophy, grammar, and data structures; moreover, to interact with your EarthTime layers sheet, the `EarthTimeR` package draws specifically on functions found in the `googledrive` and `googlesheets4` packages.
+
+`googlesheets4` wraps the Sheets API v4, which lets you read, write, and format data in Sheets. The Sheets API is very focused on spreadsheet-oriented data and metadata, i.e. (work)sheets and cells; moreover, the Sheets API offers practically no support for file-level operations, other than basic spreadsheet creation. There is no way to delete, copy, or rename a Sheet or to place it in a folder or to change its sharing permissions; therefore, the `EarthTimeR` package relies on the `tidyverse`, and specifically its wrapped [`googledrive`](https://googledrive.tidyverse.org) to use the Drive API for all of this.
+
+Another reason `EarthTimeR` was built on top of the `googlesheets4` and `googledrive` packages together is for ease of file (Sheet) identification. The `googlesheets4` package requires you to specify the target Sheet by its ID, not by its name. That’s because the underlying APIs only accept file IDs. But the `googledrive package` offers lots of support for navigating between human-friendly file names and their associated IDs. This support applies to all files on Drive and, specifically, to Sheets.
+
+Therefore, it was on natural to use both `googledrive` and `googlesheets4` together when building the `EarthTimeR' package.
 
 Before getting started, it is recommend that you first attach both aforementioned packages.
 
@@ -39,9 +45,14 @@ library(googlesheets4)
 library(googledrive)
 ```
 
-Do auth first with googlesheets4, specifying a Drive scope. Remember `gs4_auth()` accepts additional arguments, e.g. to specify a Google identity via `email =` or to use a service account via `path =`. Then direct googledrive to use the same token as googlesheets4.
+Do auth first with `googledrive`. Remember `googledrive::drive_auth()` accepts additional arguments, e.g. to specify a Google identity via `email =` or to use a service account via `path =`. Then direct `googlesheets4` to use the same token as `googledrive`.
 
-The `gs4_auth()` function is used to authorize, view, and manage your Google Sheets. This function is a wrapper around `gargle::token_fetch()`. By default, you are directed to a web browser, asked to sign in to your Google account, and to grant googlesheets4 permission to operate on your behalf with Google Sheets. By default, with your permission, these user credentials are cached in a folder below your home directory, from where they can be automatically refreshed, as necessary. Storage at the user level means the same token can be used across multiple projects and tokens are less likely to be synced to the cloud by accident.
+```r
+drive_auth()
+gs4_auth(token = drive_token())
+```
+
+Within `googlesheets4`, the `gs4_auth()` function is used to authorize, view, and manage your Google Sheets. This function is a wrapper around `gargle::token_fetch()`. By default, you are directed to a web browser, asked to sign in to your Google account, and to grant googlesheets4 permission to operate on your behalf with Google Sheets. By default, with your permission, these user credentials are cached in a folder below your home directory, from where they can be automatically refreshed, as necessary. Storage at the user level means the same token can be used across multiple projects and tokens are less likely to be synced to the cloud by accident.
 
 If you are interacting with R within a browser (applies to RStudio Server, RStudio Workbench, and RStudio Cloud), you need a variant of this flow, known as out-of-band auth ("oob"). If this does not happen automatically, you can request it yourself with `use_oob = TRUE` or, more persistently, by setting an `option via options(gargle_oob_default = TRUE)`.
 
@@ -57,6 +68,8 @@ gs4_auth(
 ```
 
 More details for invoking the `gs4_auth()` function can be found in official Tidyverse documentation [here](https://googlesheets4.tidyverse.org/reference/gs4_auth.html).
+
+Once you have directed `googlesheets4` to use the same token as `googledrive`, you will then be able to successfully use `EarthTimeR` functions to do spreadsheet-specific tasks related to your default EarthTime layers sheet. outside the scope of using `EarthTimeR`, you will also be able to use the `googledrive` suite of functions, like `googledrive::drive_find()` or `googledrive::drive_get()`, to list files or find them by name, path, or other property. Then, once you’ve identified the target file, use can use `googlesheets4` to do more general spreadsheet-specific tasks.
 
 ## Getting Started
 
