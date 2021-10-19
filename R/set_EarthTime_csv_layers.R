@@ -1,6 +1,6 @@
 #' An Install the Default CSV Layers EarthTime Sheet in Your \code{.Renviron} File for Repeated Use Function
 #'
-#' This function will add your EarthTime CSV Layers sheet to your \code{.Renviron} file so it can be called securely without being stored in your code. After you have installed your sheet, it can be called any time by typing \code{Sys.getenv("EARTHTIME_CSV_LAYERS")} and can be used in package functions by simply typing set_EARTHTIME_CSV_LAYERS() If you do not have an \code{.Renviron} file, the function will create on for you. If you already have an \code{.Renviron} file, the function will append the key to your existing file, while making a backup of your original file for disaster recovery purposes.
+#' This function will add your EarthTime CSV Layers sheet to your \code{.Renviron} file so it can be called securely without being stored in your code. After you have installed your sheet, it can be called any time by typing \code{Sys.getenv("EARTHTIME_CSV_LAYERS")} and can be used in package functions by simply typing set_EarthTime_csv_layers() If you do not have an \code{.Renviron} file, the function will create on for you. If you already have an \code{.Renviron} file, the function will append the key to your existing file, while making a backup of your original file for disaster recovery purposes.
 
 #' @param spreadsheet_id Specify the name of the csv layer output from previous functions.
 #' @param GID Something that identifies a Google Sheet: its file ID, a URL from which we can recover the ID, an instance of googlesheets4_spreadsheet (returned by sheets_get()), or a dribble, which is how googledrive represents Drive files. Processed through as_sheets_id().
@@ -26,7 +26,7 @@
 #'}
 #'}
 
-set_EARTHTIME_CSV_LAYERS  <- function (key, overwrite = FALSE, install = FALSE) {
+set_EARTHTIME_CSV_LAYERS  <- function (key1, key2, overwrite = FALSE, install = FALSE) {
   if (install) {
     home <- Sys.getenv("HOME")
     renv <- file.path(home, ".Renviron")
@@ -50,10 +50,13 @@ set_EARTHTIME_CSV_LAYERS  <- function (key, overwrite = FALSE, install = FALSE) 
         }
       }
       }
-    keyconcat <- paste0("EARTHTIME_CSV_LAYERS='", key, "'")
-    write(keyconcat, renv, sep = "\n", append = TRUE)
+    keyconcat1 <- paste0("EarthTime_CSV_layers_spreadsheet='", key2, "'")
+    write(keyconcat1, renv, sep = "\n", append = TRUE)
+    keyconcat2 <- paste0("EarthTime_CSV_layers_gid='", key2, "'")
+    write(keyconcat2, renv, sep = "\n", append = TRUE)
     message("Your EarthTime CSV Layers Sheet has been stored in your .Renviron and can be accessed by Sys.getenv(\"EARTHTIME_CSV_LAYERS\"). \nTo use now, restart R or run `readRenviron(\"~/.Renviron\")`")
-    return(key)
+    return(key1)
+    return(key2)
     }
   else {
     message("To install your API key for use in future sessions, run this function with `install = TRUE`.")
