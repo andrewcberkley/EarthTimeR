@@ -71,10 +71,10 @@ generate_csv_layer_row  <- function(Enabled_Share_Link_Identifier = TRUE, Share_
                     as.numeric(Step),	
                     URL, 
                     
-                    
+                    "sqrt|square root|Square Root|SQUARE ROOT|squareroot|SQUAREROOT"
                     
                     #Scaling, 
-                    if(Scaling=="sqrt"){
+                    if(Scaling=="sqrt" or Scaling=="square root" or Scaling=="Square Root" or Scaling=="SQUARE ROOT" or Scaling=="squareroot" or Scaling=="SQUAREROOT"){
                       paste0("d3.scaleSqrt().domain([minValue, maxValue]).range([0,1])")
                     }
                     else{
