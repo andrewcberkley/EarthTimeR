@@ -79,7 +79,7 @@ Once you have directed `googlesheets4` to use the same token as `googledrive`, y
 
 ## Python
 
-A few special map types in EarthTime are created using Python; therefore, if you plan on generating these map types exclusively using the `EarthTimeR` package, you must install the [`reticulate`](https://rstudio.github.io/reticulate/) R package, which provides a comprehensive set of tools for interoperability between Python and R.
+A few special map types in EarthTime (i.e. - line strings, point flows, points, and raster maps) are created using Python; therefore, if you plan on generating these map types exclusively using the `EarthTimeR` package, you must install the [`reticulate`](https://rstudio.github.io/reticulate/) R package, which provides a comprehensive set of tools for interoperability between Python and R.
 
 You can install the `reticulate` package from CRAN as follows:
 
