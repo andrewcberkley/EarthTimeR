@@ -28,6 +28,12 @@ library(EarthTimeR)
 
 For a complete overview of those groups, users can check out tutorials [here](https://github.com/andrewcberkley/EarthTimeR/blob/master/vignettes/Introduction.md).
 
+## Getting Started
+
+To get started working with `EarthTimeR`, users should be associated with the [CREATE Lab at Carnegie Mellon University](https://cmucreatelab.org/home) for the ability to access specific Google Sheets in EarthTime. First time users are highly recommend to set their EarthTime CSV Layers using the `set_EarhTime_csv_layers` function, which will register your default EarthTime layers sheet information on the current R session as well as your current R environment, so that it can be used to obtain the information to push data using the package without having to set it each time.
+
+As noted, the function sets one's default EarthTime `spreadsheetId` and `sheetId` in the current R environment. Thus, users should only repeat this operation if changing R environments in which they intend to use the `EarthTimeR` package or if their default EarthTime spreadsheet changes. *We stress that EarthTime `spreadsheetId` and `sheetId` are personal; therefore, users should be careful when writing and saving them in R scripts, in order to avoid sharing these information*.
+
 ## Auth
 
 It is highly recommend that users install the [`tidyverse`](https://www.tidyverse.org/) opinionated collection of R packages designed for data science as these packages provide the foundation for the `EarthTimeR` package and thus share an underlying approach design philosophy, grammar, and data structures; moreover, to interact with your EarthTime layers sheet, the `EarthTimeR` package draws specifically on functions found in the `googledrive` and `googlesheets4` packages.
@@ -38,7 +44,7 @@ Another reason `EarthTimeR` was built on top of the `googlesheets4` and `googled
 
 Therefore, it was on natural to use both `googledrive` and `googlesheets4` together when building the `EarthTimeR' package.
 
-Before getting started, it is recommend that you first attach both aforementioned packages.
+After getting started with establishing your EarthTime layers sheet using the `set_EarhTime_csv_layers` function, it is recommend that you first attach both aforementioned packages.
 
 ```r
 library(googlesheets4)
@@ -67,15 +73,37 @@ gs4_auth(
 )
 ```
 
-More details for invoking the `gs4_auth()` function can be found in official Tidyverse documentation [here](https://googlesheets4.tidyverse.org/reference/gs4_auth.html).
+More details for invoking the `gs4_auth()` function can be found in the official Tidyverse documentation [here](https://googlesheets4.tidyverse.org/reference/gs4_auth.html).
 
 Once you have directed `googlesheets4` to use the same token as `googledrive`, you will then be able to successfully use `EarthTimeR` functions to do spreadsheet-specific tasks related to your default EarthTime layers sheet. outside the scope of using `EarthTimeR`, you will also be able to use the `googledrive` suite of functions, like `googledrive::drive_find()` or `googledrive::drive_get()`, to list files or find them by name, path, or other property. Then, once you’ve identified the target file, use can use `googlesheets4` to do more general spreadsheet-specific tasks.
 
-## Getting Started
+## Python
 
-To get started working with `EarthTimeR`, users should be associated with the [CREATE Lab at Carnegie Mellon University](https://cmucreatelab.org/home) for the ability to access specific Google Sheets in EarthTime. First time users are highly recommend to set their EarthTime CSV Layers using the `set_EarhTime_csv_layers` function, which will register your default EarthTime layers sheet information on the current R session as well as your current R environment, so that it can be used to obtain the information to push data using the package without having to set it each time.
+A few special map types in EarthTime are created using Python; therefore, if you plan on generating these map types exclusively using the `EarthTimeR` package, you must install the [`reticulate`](https://rstudio.github.io/reticulate/) R package, which provides a comprehensive set of tools for interoperability between Python and R.
 
-As noted, the function sets one's default EarthTime `spreadsheetId` and `sheetId` in the current R environment. Thus, users should only repeat this operation if changing R environments in which they intend to use the `EarthTimeR` package or if their default EarthTime spreadsheet changes. *We stress that EarthTime `spreadsheetId` and `sheetId` are personal; therefore, users should be careful when writing and saving them in R scripts, in order to avoid sharing these information*.
+You can install the `reticulate` package from CRAN as follows:
+
+```r
+install.packages("reticulate")
+```
+
+By default, reticulate uses the version of Python found on your `PATH` (i.e. `Sys.which("python")`).
+
+The `use_python()` function enables you to specify an alternate version, for example:
+
+```r
+library(reticulate)
+use_python("/usr/local/bin/python")
+```
+
+The `use_virtualenv()` and `use_condaenv()` functions enable you to specify versions of Python in virtual or Conda environments, for example:
+
+```r
+library(reticulate)
+use_virtualenv("myenv")
+```
+
+You can also refer to the article on [Python Version Configuration](https://rstudio.github.io/reticulate/articles/versions.html) for additional information.
 
 ## Authors
 
