@@ -28,7 +28,7 @@ library(EarthTimeR)
 
 For a complete overview of those groups, users can check out tutorials [here](https://github.com/andrewcberkley/EarthTimeR/blob/master/vignettes/Introduction.md).
 
-To access specific Google Sheets in EarthTime, users should be associated with the [CREATE LAb at Carnegie Mellon University](https://cmucreatelab.org/home). `authenticate_EarthTime_sheet` function registers these information on the current R session, so that it can be used to obtain the token to push data using the package.
+To access specific Google Sheets in EarthTime, users should be associated with the [CREATE Lab at Carnegie Mellon University](https://cmucreatelab.org/home). `authenticate_EarthTime_sheet` function registers these information on the current R session, so that it can be used to obtain the token to push data using the package.
 
 As noted, the function sets one's Google credientials in the current R environment. Thus, users should repeat this operation on every new R session in which they intend to use the `EarthTimeR` package. *We stress that user and password are personal. Therefore, users should be careful when writing and saving them in R scripts, in order to avoid sharing these information*.
 
