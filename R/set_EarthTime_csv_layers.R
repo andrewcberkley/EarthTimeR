@@ -13,7 +13,7 @@
 #' # First time, reload your environment so you can use the key without restarting R.
 #' readRenviron("~/.Renviron")
 #' You can check it with:
-#' Sys.getenv("EARTHTIME_CSV_LAYERS")
+#' Sys.getenv("EarthTime_CSV_Layers")
 #'}
 
 #'\dontrun{
@@ -22,11 +22,11 @@
 #'  # First time, reload your environment so you can use the key without restarting R.
 #'  readRenviron("~/.Renviron")
 #'  # You can check it with:
-#'  Sys.getenv("EARTHTIME_CSV_LAYERS")
+#'  Sys.getenv("EarthTime_CSV_Layers")
 #'}
 #'}
 
-set_EARTHTIME_CSV_LAYERS  <- function (key1, key2, overwrite = FALSE, install = FALSE) {
+set_EarthTime_CSV_Layers  <- function (spreadsheetId, sheetId, overwrite = FALSE, install = FALSE) {
   if (install) {
     home <- Sys.getenv("HOME")
     renv <- file.path(home, ".Renviron")
@@ -39,28 +39,34 @@ set_EARTHTIME_CSV_LAYERS  <- function (key1, key2, overwrite = FALSE, install = 
     else {
       if (isTRUE(overwrite)) {
         message("Your original .Renviron will be backed up and stored in your R HOME directory if needed.")
-        oldenv = read.table(renv, stringsAsFactors = FALSE)
-        newenv <- oldenv[-grep("EARTHTIME_CSV_LAYERS", oldenv), ]
-        write.table(newenv, renv, quote = FALSE, sep = "\n", col.names = FALSE, row.names = FALSE)
+        oldenv1 = read.table(renv, stringsAsFactors = FALSE)
+        newenv1 <- oldenv1[-grep("EarthTime_CSV_Layers_spreadsheetId", oldenv1), ]
+        write.table(newenv1, renv, quote = FALSE, sep = "\n", col.names = FALSE, row.names = FALSE)
+        oldenv2 = read.table(renv, stringsAsFactors = FALSE)
+        newenv2 <- oldenv2[-grep("EarthTime_CSV_Layers_spreadsheetId", oldenv2), ]
+        write.table(newenv2, renv, quote = FALSE, sep = "\n", col.names = FALSE, row.names = FALSE)
         }
       else {
         tv <- readLines(renv)
-        if (any(grepl("EARTHTIME_CSV_LAYERS", tv))) {
-          stop("A EARTHTIME_CSV_LAYERS already exists. You can overwrite it with the argument overwrite=TRUE", call. = FALSE)
+        if (any(grepl("EarthTime_CSV_Layers_spreadsheetId", tv))) {
+          stop("An EarthTime CSV Layers spreadsheet entry already exists. You can overwrite it with the argument overwrite=TRUE", call. = FALSE)
         }
       }
       }
-    keyconcat1 <- paste0("EarthTime_CSV_layers_spreadsheet='", key2, "'")
+    keyconcat1 <- paste0("EarthTime_CSV_Layers_spreadsheetId='", spreadsheetId, "'")
     write(keyconcat1, renv, sep = "\n", append = TRUE)
-    keyconcat2 <- paste0("EarthTime_CSV_layers_gid='", key2, "'")
+    keyconcat2 <- paste0("EarthTime_CSV_Layers_sheetId='", sheetId, "'")
     write(keyconcat2, renv, sep = "\n", append = TRUE)
     message("Your EarthTime CSV Layers Sheet has been stored in your .Renviron and can be accessed by Sys.getenv(\"EARTHTIME_CSV_LAYERS\"). \nTo use now, restart R or run `readRenviron(\"~/.Renviron\")`")
-    return(key1)
-    return(key2)
+    
+    confirmation <- paste0("Congratulations! Your EarthTime CSV layers sheet, 'https://docs.google.com/spreadsheets/d/", spreadsheetId, "/edit#gid=", sheetId, "' has been written into your .Renviron")
+    
+    return(confirmation)
     }
   else {
-    message("To install your API key for use in future sessions, run this function with `install = TRUE`.")
-    Sys.setenv(EARTHTIME_CSV_LAYERS = key)
+    message("To install your default EarthTime CSV Layers spreadsheet for use in future sessions, run this function with `install = TRUE`.")
+    Sys.setenv(EarthTime_CSV_Layers_spreadsheetId = spreadsheetId)
+    Sys.setenv(EarthTime_CSV_Layers_sheetId = sheetId)
   }
 }
 
