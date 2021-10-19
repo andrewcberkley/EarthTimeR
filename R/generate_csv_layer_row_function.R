@@ -69,19 +69,24 @@ generate_csv_layer_row  <- function(Enabled_Share_Link_Identifier = TRUE, Share_
                     as.numeric(Start_Date),	
                     as.numeric(End_Date),	
                     as.numeric(Step),	
-                    URL, 
-                    
-                    "sqrt|square root|Square Root|SQUARE ROOT|squareroot|SQUAREROOT"
-                    
-                    #Scaling, 
-                    if(Scaling=="sqrt" or Scaling=="square root" or Scaling=="Square Root" or Scaling=="SQUARE ROOT" or Scaling=="squareroot" or Scaling=="SQUAREROOT"){
+                    URL,
+                    #Start of Scaling Options 
+                    if(Scaling=="linear" || Scaling=="Linear" || Scaling=="LINEAR"){
+                      paste0("d3.scaleLinear().domain([minValue, maxValue]).range([0,1])")
+                    }
+                    else if(Scaling=="log" || Scaling=="Log" || Scaling=="LOG " || Scaling=="logarithmic" || Scaling=="Logarithmic" || Scaling=="LOGARTITHMIC"){
+                      paste0("d3.scaleLOG().domain([minValue, maxValue]).range([0,1])")
+                    }
+                    else if(Scaling=="pow" || Scaling=="POW" || Scaling=="power" || Scaling=="POWER"){
+                      paste0("d3.scalePow().domain([minValue, maxValue]).range([0,1])")
+                    }
+                    else if(Scaling=="sqrt" || Scaling=="SQRT" || Scaling=="square root" || Scaling=="Square Root" || Scaling=="SQUARE ROOT" || Scaling=="squareroot" || Scaling=="SQUAREROOT"){
                       paste0("d3.scaleSqrt().domain([minValue, maxValue]).range([0,1])")
                     }
                     else{
-                      paste0("d3.scalePow().domain([minValue, maxValue]).range([0,1])")
+                      stop("Invalid scaling option. Please input one of the following scales: 'linear' ('linear'), 'logarithmic' ('log'), 'power' ('pow'), or 'square root' ('sqrt')", call. = FALSE)
                     },
-                    
-                    
+                    #End of Scaling Options
                     Color_Scaling,	
                     Map_Type,	
                     Color,	
