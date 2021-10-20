@@ -8,8 +8,10 @@
 #' @keywords append CSV layers
 #' @export
 #' @examples
-#' append_new_data_layer_to_CSV_layers()
+#' \dontrun{
+#' append_new_data_layer_to_CSV_layers(Sys.getenv("EarthTime_CSV_Layers_spreadsheetId"), df)
+#'}
 
-append_new_data_layer_to_CSV_layers  <- function(ss, csv_layer, sheet = "CSV Layers"){
-  googlesheets4::sheet_append(ss, data = csv_layer, sheet = "CSV Layers")
+append_new_data_layer_to_CSV_layers  <- function(EarthTime_CSV_Layers_spreadsheetId, csv_layer, sheet = "CSV Layers"){
+  googlesheets4::sheet_append(EarthTime_CSV_Layers_spreadsheetId, data = csv_layer, sheet = "CSV Layers")
 }
