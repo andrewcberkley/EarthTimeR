@@ -9,7 +9,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' append_new_data_layer_to_CSV_layers(Sys.getenv("EarthTime_Layers_Sheet"), df)
+#' append_new_data_layer_to_CSV_layers(Sys.getenv("EarthTime_Layers_Sheet"), csv_layer_row)
 #'}
 
 append_new_data_layer_to_CSV_layers  <- function(EarthTime_CSV_Layers_spreadsheetId, csv_layer_row, sheet = "CSV Layers"){
