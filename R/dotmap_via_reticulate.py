@@ -25,11 +25,6 @@ def create_python_dotmap(dataframe, latitude_column, longitude_column, value_col
   len(raw_data)
   raw_data[0]
 
-# rev 1
-# x,y,size_value,epoch
-# show all points in same color. Initial date at full size. after n days begin to fade dot until a year as elapsed...
-# don't distinguish between events with 0 or > 0 number of events
-#This is for **ALL** events
   points = []
   for row in raw_data:
     x,y = LonLatToPixelXY([float(row[latitude_column]), float(row[longitude_column])])
@@ -40,7 +35,7 @@ def create_python_dotmap(dataframe, latitude_column, longitude_column, value_col
     points.append(FormatEpoch(row[date_column], date_format))
   array.array('f', points).tofile(open(dataframe+".bin", 'wb'))
 
-create_python_dotmap(dataframe, latitude_column, longitude_column, value_column, date_column, date_format, rgb_color_scheme)
+#create_python_dotmap(dataframe, latitude_column, longitude_column, value_column, date_column, date_format, rgb_color_scheme)
 #multiple_variables("arizona_migrant_female_deaths", [118,187,228])
 #multiple_variables("arizona_migrant_deaths_from_exposure", [235,249,36])
 #multiple_variables("arizona_migrant_skeletal_remains", [118,228,158])
