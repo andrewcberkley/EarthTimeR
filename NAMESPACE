@@ -2,8 +2,10 @@
 
 export(append_new_data_layer_to_CSV_layers)
 export(choropleth)
+export(create_dotMap)
 export(generate_csv_layer_row)
 export(google_account_authorization)
 export(initial_ingestion)
 export(overwrite_sheet)
-export(set_EarthTime_CSV_Layers)
+export(set_EarthTime_Layers_Sheet)
+export(split_categories)

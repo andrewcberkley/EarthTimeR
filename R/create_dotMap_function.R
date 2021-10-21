@@ -13,7 +13,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' create_dotMap <-  function(dataframe, latitude_column, longitude_column, value_column, date_column"
+#' create_dotMap <-  function(dataframe, latitude_column, longitude_column, value_column, date_column)
 #'}
 
 #suppressWarnings(use_python("C:/ProgramData/Anaconda3/", required = TRUE))
@@ -35,6 +35,8 @@ create_dotMap <-  function(dataframe, latitude_column, longitude_column, value_c
   reticulate::source_python('dotmap_via_reticulate.py')
   create_python_dotmap(obj_name, latitude_column, longitude_column, value_column, date_column, date_format, red, green, blue)
   
-  file.remove(paste0(obj_name, ".csv"))
+  invisible(file.remove(paste0(obj_name, ".csv")))
+  
+  cat(crayon::green$bold("\nCONGRATULATIONS:" , crayon::reset(" The dataframe for" , crayon::bgYellow(obj_name , crayon::reset(" has been converted into a .BIN file and is ready to be pushed to your EarthTime instance via the terminal!\n\n")))))
   
   }
