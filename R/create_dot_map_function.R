@@ -13,20 +13,20 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' split_categories(dataframe, categories_column)
+#' create_dotMap <-  function(dataframe, latitude_column, longitude_column, value_column, date_column"
 #'}
 
 #suppressWarnings(use_python("C:/ProgramData/Anaconda3/", required = TRUE))
 #py_config()
 #py_install("pandas")
 
-split_categories <-  function(dataframe, latitude_column, longitude_column, value_column, date_column, date_format = "%Y-%m-%d", rgb_color_scheme = "[255,0,0]"){
+create_dotMap <-  function(dataframe, latitude_column, longitude_column, value_column, date_column, date_format = "%Y-%m-%d", rgb_color_scheme = "[255,0,0]"){
   
   write.csv(dataframe, paste0(dataframe, ".csv"), row.names = FALSE, na = "")
   
   reticulate::source_python('dotmap_via_reticulate.py')
   create_dotmap(dataframe, latitude_column, longitude_column, value_column, date_column, date_format, rgb_color_scheme)
   
-  file.remove()
+  file.remove(paste0(dataframe, ".csv"))
   
   }
