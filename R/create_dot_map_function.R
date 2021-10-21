@@ -25,10 +25,15 @@ create_dotMap <-  function(dataframe, latitude_column, longitude_column, value_c
   obj_name = deparse(substitute(dataframe))
   # df <- # code that cleans the df (runs with no errors)
   
+  red_green_blue <- stringr::str_extract_all(rgb_color_scheme, "\\d+")
+  red <- as.numeric(red_green_blue[[1]][[1]])
+  green <- as.numeric(red_green_blue[[1]][[2]])
+  blue <- as.numeric(red_green_blue[[1]][[3]])
+  
   write.csv(dataframe, paste0(obj_name, ".csv"), row.names = FALSE, na = "")
   
   reticulate::source_python('dotmap_via_reticulate.py')
-  create_python_dotmap(obj_name, latitude_column, longitude_column, value_column, date_column, date_format, rgb_color_scheme)
+  create_python_dotmap(obj_name, latitude_column, longitude_column, value_column, date_column, date_format, red, green, blue)
   
   file.remove(paste0(obj_name, ".csv"))
   
