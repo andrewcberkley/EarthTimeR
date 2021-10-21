@@ -20,7 +20,8 @@ Imports:
   mime,
   curl,
   gargle,
-  crayon
+  crayon,
+  stringr
 Suggests:
   tidyverse,
   readr
