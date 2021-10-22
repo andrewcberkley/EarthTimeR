@@ -21,7 +21,8 @@ Imports:
   curl,
   gargle,
   crayon,
-  stringr
+  stringr,
+  reticulate
 Suggests:
   tidyverse,
   readr
