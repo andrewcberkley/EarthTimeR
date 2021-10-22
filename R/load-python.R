@@ -1,0 +1,33 @@
+.onLoad <- function(libname, pkgname) {
+  user_permission <- utils::askYesNo("Install miniconda? downloads 50MB and takes time")
+  
+  if (isTRUE(user_permission)) {
+    reticulate::install_miniconda()
+  } else {
+    message("You should run `reticulate::install_miniconda() before using this package")
+  }
+}
+
+# Load the module and create dummy objects from it, all of which are NULL
+dotmap_via_reticulate <- reticulate::import_from_path(
+  "dotmap_via_reticulate",
+  file.path("inst", "python")
+)
+for (obj in names(dotmap_via_reticulate)) {
+  assign(obj, NULL)
+}
+# Clean up
+rm(dotmap_via_reticulate)
+
+# Now all those names are in the namespace, and ready to be replaced on load
+.onLoad <- function(libname, pkgname) {
+  dotmap_via_reticulate <- reticulate::import_from_path(
+    "dotmap_via_reticulate",
+    system.file("python", package = packageName()),
+    delay_load = TRUE
+  )
+  # assignInMyNamespace(...) is meant for namespace manipulation
+  for (obj in names(dotmap_via_reticulate)) {
+    assignInMyNamespace(obj, dotmap_via_reticulate[[obj]])
+  }
+}
