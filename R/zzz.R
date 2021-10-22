@@ -15,8 +15,7 @@ hex2rgb <- NULL
 create_python_dotmap <- NULL
 
 .onLoad <- function(libname, pkgname) {
-  reticulate::import_from_path(
-    module = "dotmap_via_reticulate", 
-    path = system.file("python", package = packageName())
-    )
+  pkg_ns_env <- parent.env(environment())
+  dotmap_via_reticulate <- reticulate::import_from_path("dotmap_via_reticulate", system.file("python", "dotmap_via_reticulate", package = pkgname, mustWork = TRUE))
+  lapply(names(dotmap_via_reticulate), function(name) assign(name, dotmap_via_reticulate[[name]], pkg_ns_env))
 }
