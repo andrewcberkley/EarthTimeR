@@ -6,9 +6,9 @@ create_python_dotmap <- NULL
 
 .onLoad <- function(libname, pkgname) {
   the_module <- reticulate::import_from_path(module = "dotmap_via_reticulate", path = system.file("python", package = packageName()))
-  dotmap_via_reticulate <<- the_module$LonLatToPixelXY
-  dotmap_via_reticulate <<- the_module$FormatEpoch
-  dotmap_via_reticulate <<- the_module$PackColor
-  dotmap_via_reticulate <<- the_module$hex2rgb
-  dotmap_via_reticulate <<- the_module$create_python_dotmap
+  LonLatToPixelXY <<- the_module$LonLatToPixelXY
+  FormatEpoch <<- the_module$FormatEpoch
+  PackColor <<- the_module$PackColor
+  hex2rgb <<- the_module$hex2rgb
+  create_python_dotmap <<- the_module$create_python_dotmap
 }
