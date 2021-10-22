@@ -18,9 +18,37 @@
 
 #It allows users to specify a desired location for Python before interacting with your package.
 
-dotmap_via_reticulate <- NULL
+LonLatToPixelXY <- NULL
 
 .onLoad <- function(libname, pkgname) {
   the_module <- reticulate::import_from_path(module = "dotmap_via_reticulate", path = system.file("py", package = packageName()))
-  dotmap_via_reticulate <<- the_module$dotmap_via_reticulate
+  LonLatToPixelXY <<- the_module$LonLatToPixelXY
+}
+
+FormatEpoch <- NULL
+
+.onLoad <- function(libname, pkgname) {
+  the_module <- reticulate::import_from_path(module = "dotmap_via_reticulate", path = system.file("py", package = packageName()))
+  FormatEpoch <<- the_module$FormatEpoch
+}
+
+PackColor <- NULL
+
+.onLoad <- function(libname, pkgname) {
+  the_module <- reticulate::import_from_path(module = "dotmap_via_reticulate", path = system.file("py", package = packageName()))
+  PackColor <<- the_module$PackColor
+}
+
+hex2rgb <- NULL
+
+.onLoad <- function(libname, pkgname) {
+  the_module <- reticulate::import_from_path(module = "dotmap_via_reticulate", path = system.file("py", package = packageName()))
+  hex2rgb <<- the_module$hex2rgb
+}
+
+create_python_dotmap <- NULL
+
+.onLoad <- function(libname, pkgname) {
+  the_module <- reticulate::import_from_path(module = "dotmap_via_reticulate", path = system.file("py", package = packageName()))
+  create_python_dotmap <<- the_module$create_python_dotmap
 }
