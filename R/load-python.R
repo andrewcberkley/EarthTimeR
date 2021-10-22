@@ -1,7 +1,7 @@
 # Load the module and create dummy objects from it, all of which are NULL
 dotmap_via_reticulate <- reticulate::import_from_path(
   "dotmap_via_reticulate",
-  file.path("inst", "py")
+  file.path("inst", "python")
 )
 for (obj in names(dotmap_via_reticulate)) {
   assign(obj, NULL)
@@ -13,7 +13,7 @@ rm(dotmap_via_reticulate)
 .onLoad <- function(libname, pkgname) {
   dotmap_via_reticulate <- reticulate::import_from_path(
     "dotmap_via_reticulate",
-    system.file("py", package = packageName()),
+    system.file("python", package = packageName()),
     delay_load = TRUE
   )
   # assignInMyNamespace(...) is meant for namespace manipulation
