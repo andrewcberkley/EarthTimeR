@@ -8,6 +8,12 @@ Authors@R:
            email = "andrewcberkley@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: EarthTimeR is a package created to make data wrangling easier before ingesting data into the EarthTime project. EarthTime is a collaboration between Carnegie Mellon University's CREATE Lab and the World Economic Forum allowing individuals to examine major environmental, social, and political phenomenon across time, across space, and between each other.
+Config/reticulate:
+  list(
+    packages = list(
+      list(package = "dotmap_via_reticulate")
+    )
+  )
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
