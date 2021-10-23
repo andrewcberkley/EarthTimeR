@@ -22,7 +22,7 @@
 
 create_dotMap <-  function(dataframe, latitude_column, longitude_column, value_column, date_column, date_format = "%Y-%m-%d", rgb_color_scheme = "[255,0,0]"){
   
-    obj_name = deparse(substitute(dataframe))
+  obj_name = deparse(substitute(dataframe))
   # df <- # code that cleans the df (runs with no errors)
   
   red_green_blue <- stringr::str_extract_all(rgb_color_scheme, "\\d+")
