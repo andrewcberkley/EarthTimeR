@@ -3,7 +3,6 @@
 export(append_new_data_layer_to_CSV_layers)
 export(choropleth)
 export(create_dotMap)
-export(dotmap_via_reticulate)
 export(generate_csv_layer_row)
 export(initial_ingestion)
 export(overwrite_sheet)
