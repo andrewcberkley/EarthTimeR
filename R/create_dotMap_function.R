@@ -22,7 +22,7 @@
 
 create_dotMap <-  function(dataframe, latitude_column, longitude_column, value_column, date_column, date_format = "%Y-%m-%d", rgb_color_scheme = "[255,0,0]"){
   
-  obj_name = deparse(substitute(dataframe))
+    obj_name = deparse(substitute(dataframe))
   # df <- # code that cleans the df (runs with no errors)
   
   red_green_blue <- stringr::str_extract_all(rgb_color_scheme, "\\d+")
@@ -32,7 +32,9 @@ create_dotMap <-  function(dataframe, latitude_column, longitude_column, value_c
   
   write.csv(dataframe, paste0(obj_name, ".csv"), row.names = FALSE, na = "")
   
-  reticulate::source_python('dotmap_via_reticulate.py')
+  path <- paste(system.file("python",package="EarthTimeR"), "dotmap_via_reticulate.py", sep="/")
+  
+  reticulate::source_python(path)
   create_python_dotmap(obj_name, latitude_column, longitude_column, value_column, date_column, date_format, red, green, blue)
   
   invisible(file.remove(paste0(obj_name, ".csv")))
