@@ -1,3 +1,11 @@
+#' A Python Helper Function
+#'
+#' This is a utility function helps create a dotmap..
+
+#' @name load-python
+#' @param libname libname
+#' @param pkgname pkgname
+
 #from: https://community.rstudio.com/t/build-package-namespace-dynamically-during-onload/4101/3
 #via: https://github.com/rstudio/reticulate/issues/780
 
