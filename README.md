@@ -110,3 +110,7 @@ You can also refer to the article on [Python Version Configuration](https://rstu
 [Andrew C. Berkley](https://github.com/andrewcberkley), for the [World Economic Forum](https://www.weforum.org/).
 
 ## Contributors
+
+## Code of conduct
+
+Please note that the `EarthTimeR` project is released with a Contributor Code of Conduct (available in `CODE_OF_CONDUCT.md`). By contributing to this project, you agree to abide by its terms.
