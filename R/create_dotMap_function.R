@@ -32,6 +32,7 @@ create_dotMap <-  function(dataframe, latitude_column, longitude_column, value_c
   
   write.csv(dataframe, paste0(obj_name, ".csv"), row.names = FALSE, na = "")
   
+  #The moment it clicked: http://www.mjdenny.com/R_Package_Pictorial.html
   path <- paste(system.file("python",package="EarthTimeR"), "dotmap_via_reticulate.py", sep="/")
   
   reticulate::source_python(path)
