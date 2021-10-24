@@ -1,6 +1,7 @@
 # EarthTimeR
 
-`EarthTimeR` is a package created to make data wrangling easier before ingesting data into the [EarthTime](https://earthtime.org/) project. EarthTime which is a collaboration between Carnegie Mellon University's CREATE Lab and the World Economic Forum allowing individuals to examine major environmental, social, and political phenomenon across time, across space, and between each other.
+`EarthTimeR` is a package to help facilitate data wrangling through a suite of functions that transforms data into the specific format required prior to ingesting it into the [EarthTime](https://earthtime.org/) project. EarthTime—a collaboration between the CREATE Lab at Carnegie Mellon University and the World Economic Forum—allows individuals to examine major environmental, social, and political phenomenon across time, across space, and between each other. The project brings together the fact-based narratives of experts with visually compelling images that break through every language and culture barrier, forging common ground across diverse viewpoints, helping to create the sense of unity we need to have meaningful discourse about how to steward our future more meaningfully.
+
 
 ## Installing and loading the package
 
