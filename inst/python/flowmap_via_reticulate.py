@@ -160,7 +160,7 @@ def create_python_flowmap(dataframe, origin, destination, value_column, date_col
 
     #fname
 
-    #!rsync -rcav ../data/sipri_arms_transfers_db USERNAME@HOSTNAME:/FILE_PATH
+    #!rsync -rcav ../data/dataframe_name_database USERNAME@HOSTNAME:/FILE_PATH
 
 
 
