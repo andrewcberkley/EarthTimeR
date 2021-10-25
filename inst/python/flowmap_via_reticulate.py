@@ -1,9 +1,9 @@
 import csv, glob, json, math, os, re
 
-def process_row(row):
+def process_row(row, projected_coordinate_system):
     year, org, dst, val = row                
-    org_wm = centroids_by_iso_alpha_3[org]['epsg_3857']
-    dst_wm = centroids_by_iso_alpha_3[dst]['epsg_3857']
+    org_wm = centroids_by_iso_alpha_3[org][projected_coordinate_system]
+    dst_wm = centroids_by_iso_alpha_3[dst][projected_coordinate_system]
     mid_wm = [((dst_wm[0] + org_wm[0]) / 2), ((dst_wm[1] + org_wm[1]) / 2)]  
     mid_offset = [0,0]                
     dist = math.sqrt(math.pow(dst_wm[0] - org_wm[0],2) +  math.pow(dst_wm[1] - org_wm[1],2))

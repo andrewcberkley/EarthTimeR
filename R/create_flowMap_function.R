@@ -26,12 +26,6 @@
 create_flowMap <-  function(dataframe, origin, destination, value_column, date_column, centroids_json = "centroids_by_iso_alpha_3.json", projected_coordinate_system = "epsg_3857", output_dir = getwd()){
   
   obj_name = deparse(substitute(dataframe))
-  # df <- # code that cleans the df (runs with no errors)
-  
-  red_green_blue <- stringr::str_extract_all(rgb_color_scheme, "\\d+")
-  red <- as.numeric(red_green_blue[[1]][[1]])
-  green <- as.numeric(red_green_blue[[1]][[2]])
-  blue <- as.numeric(red_green_blue[[1]][[3]])
   
   write.csv(dataframe, paste0(obj_name, ".csv"), row.names = FALSE, na = "")
   
@@ -39,7 +33,8 @@ create_flowMap <-  function(dataframe, origin, destination, value_column, date_c
   path <- paste(system.file("python",package="EarthTimeR"), "dotmap_via_reticulate.py", sep="/")
   
   reticulate::source_python(path)
-  create_python_dotmap(obj_name, latitude_column, longitude_column, value_column, date_column, date_format, red, green, blue)
+  process_row("row", projected_coordinate_system)
+  create_python_flowmap(dataframe, origin, destination, value_column, date_column, centroids_json, projected_coordinate_system, output_dir = getwd())
   
   invisible(file.remove(paste0(obj_name, ".csv")))
   
