@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import csv, glob, json, math, os, re
 
 def process_row(row):
@@ -62,25 +56,13 @@ def find_name(name, features):
     else:
         return None
 
-
-# In[ ]:
-
-
 raw_data = []
 with open("top_receivers/to_philippines.csv") as f:
     reader = csv.DictReader(f,delimiter=",")
     for row in reader:
         raw_data.append(row)
 
-
-# In[ ]:
-
-
-raw_data
-
-
-# In[ ]:
-
+#raw_data
 
 # Standardize names
 names = []
@@ -93,22 +75,11 @@ for row in raw_data:
         names.append(dst)
 
 
-# In[ ]:
-
-
 with open("country-centroids.geojson") as f:
     centroids = json.load(f)
 
-
-# In[ ]:
-
-
 with open("centroids_by_iso_alpha_3.json") as f:
     centroids_by_iso_alpha_3 = json.load(f)
-
-
-# In[ ]:
-
 
 names_to_iso = {}
 for n in names:
@@ -147,10 +118,6 @@ for n in names:
     else:
         names_to_iso[n] = iso
 
-
-# In[ ]:
-
-
 # Get all years
 years = []
 for row in raw_data:
@@ -158,10 +125,6 @@ for row in raw_data:
         years.append(row['Year'])
 years.sort()
 years
-
-
-# In[ ]:
-
 
 collection = {}
 for y in years:
@@ -181,16 +144,6 @@ for row in raw_data:
         collection[year][o][d] += float(row['Remittance Amount (millions of USD)'])
             
 
-
-# In[ ]:
-
-
-#collection
-
-
-# In[ ]:
-
-
 out_dir = "../Blockchain_and_Remittances/top_receivers/philippines/"
 if not os.path.exists(out_dir):
     os.makedirs(out_dir)
@@ -204,20 +157,9 @@ for year in years:
             col.append(process_row([year,org,dst,val]))
     to_json(col, fname)
 
-
-# In[ ]:
-
-
-fname
-
-
-# In[ ]:
-
+#fname
 
 #!rsync -rcav ../data/sipri_arms_transfers_db USERNAME@HOSTNAME:/FILE_PATH
-
-
-# In[ ]:
 
 
 
