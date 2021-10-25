@@ -1,6 +1,6 @@
 #' A Dot Map Creation Function
 #'
-#' This function creates a dot map from a dataframe. It will output a .bin file in your working directory for you to later upload to your specific EarthTime instance.
+#' This function creates a dot map from a dataframe. It will output a .bin file in your working directory for you to later push to a specific EarthTime instance.
 
 #' @param dataframe Specify the name of the dataframe that you'd like to transform into a dot map .bin file.
 #' @param latitude_column Specify the column name (in quotes) that contains the latitudinal coordinates.
