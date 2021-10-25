@@ -30,7 +30,7 @@ create_dotMap(
 \item{rgb_color_scheme}{Specify RGB  tuple of float values in a closed interval between 0 and 255. Defaults to "255,0,0" (i.e. - the color red).}
 }
 \description{
-This function splits a dot map from a dataframe. It will output a .bin file in your working directory for you to later upload to your specific EarthTime instance.
+This function creates a dot map from a dataframe. It will output a .bin file in your working directory for you to later push to a specific EarthTime instance.
 }
 \examples{
 \dontrun{
