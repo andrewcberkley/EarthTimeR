@@ -1,9 +1,9 @@
 import csv, glob, json, math, os, re
 
-def process_row(row, projected_coordinate_system):
+def process_row(row):
     year, org, dst, val = row                
-    org_wm = centroids_by_iso_alpha_3[org][projected_coordinate_system]
-    dst_wm = centroids_by_iso_alpha_3[dst][projected_coordinate_system]
+    org_wm = centroids_by_iso_alpha_3[org]["epsg_3857"]
+    dst_wm = centroids_by_iso_alpha_3[dst]["epsg_3857"]
     mid_wm = [((dst_wm[0] + org_wm[0]) / 2), ((dst_wm[1] + org_wm[1]) / 2)]  
     mid_offset = [0,0]                
     dist = math.sqrt(math.pow(dst_wm[0] - org_wm[0],2) +  math.pow(dst_wm[1] - org_wm[1],2))
@@ -58,7 +58,7 @@ def find_name(name, features):
 
 def create_python_flowmap(dataframe, origin, destination, value_column, date_column, centroids_json, output_dir):
     raw_data = []
-    with open(dataframe) as f:
+    with open(dataframe+".csv", encoding="utf8") as f:
         reader = csv.DictReader(f,delimiter=",")
         for row in reader:
             raw_data.append(row)
