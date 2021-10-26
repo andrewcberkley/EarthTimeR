@@ -5,6 +5,7 @@
 #' @param dataframe Specify the name of the dataframe that you'd like to transform into a dot map .json file.
 #' @param origin  Specify the column name (in quotes) that contains the latitudinal coordinates.
 #' @param destination Specify the column name (in quotes) that contains the longitudinal coordinates.
+#' @param centroids_geojson Defaults to "country-centroids.geojson" included with the package.
 #' @param centroids_json Defaults to "centroids_by_iso_alpha_3.json" included with the package.
 #' @param value_column Specify the column name (in quotes) that contains the primary value being visualized.
 #' @param date_column Specify the column name (in quotes) that contains the date category.
@@ -21,7 +22,7 @@
 #py_config()
 #py_install("pandas")
 
-create_flowMap <-  function(dataframe, origin, destination, value_column, date_column, centroids_json = "centroids_by_iso_alpha_3.json", output_dir = getwd()){
+create_flowMap <-  function(dataframe, origin, destination, value_column, date_column, projected_coordinate_system = "epsg_3857", centroids_geojson = "country-centroids.geojson", centroids_json = "centroids_by_iso_alpha_3.json", output_dir = getwd()){
   
   obj_name = deparse(substitute(dataframe))
   
@@ -31,11 +32,10 @@ create_flowMap <-  function(dataframe, origin, destination, value_column, date_c
   #path <- paste(system.file("python",package="EarthTimeR"), "flowmap_via_reticulate.py", sep="/")
   
   reticulate::source_python("flowmap_via_reticulate.py")
-  #process_row("row", projected_coordinate_system)
-  create_python_flowmap(obj_name, origin, destination, value_column, date_column, centroids_json, output_dir = getwd())
+  create_python_flowmap(obj_name, origin, destination, value_column, date_column, projected_coordinate_system, centroids_geojson, centroids_json, output_dir)
   
   invisible(file.remove(paste0(obj_name, ".csv")))
   
-  cat(crayon::green$bold("\nCONGRATULATIONS:" , crayon::reset(" The dataframe for" , crayon::bgYellow(obj_name , crayon::reset(" has been converted into a .BIN file and is ready to be pushed to your EarthTime instance via the terminal!\n\n")))))
+  cat(crayon::green$bold("\nCONGRATULATIONS:" , crayon::reset(" The dataframe for" , crayon::bgYellow(obj_name , crayon::reset(" has been converted into a .json file and is ready to be pushed to your EarthTime instance via the terminal!\n\n")))))
   
 }

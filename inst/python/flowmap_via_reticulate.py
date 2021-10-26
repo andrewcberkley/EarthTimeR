@@ -1,36 +1,5 @@
 import csv, glob, json, math, os, re
 
-def process_row(row):
-    year, org, dst, val = row                
-    org_wm = centroids_by_iso_alpha_3[org]["epsg_3857"]
-    dst_wm = centroids_by_iso_alpha_3[dst]["epsg_3857"]
-    mid_wm = [((dst_wm[0] + org_wm[0]) / 2), ((dst_wm[1] + org_wm[1]) / 2)]  
-    mid_offset = [0,0]                
-    dist = math.sqrt(math.pow(dst_wm[0] - org_wm[0],2) +  math.pow(dst_wm[1] - org_wm[1],2))
-    if abs(dst_wm[1] - org_wm[1]) > abs(dst_wm[0] - org_wm[0]):
-        if dst_wm[1] > org_wm[1]:
-            mid_offset[0] = 1
-            mid_wm[0] += dist*0.5
-        else:
-            mid_offset[0] = -1
-            mid_wm[0] -= dist*0.5
-    else:
-        if dst_wm[0] < org_wm[0]:
-            mid_offset[1] = 1   
-            mid_wm[1] += dist*0.5
-        else: 
-            mid_offset[1] = -1
-            mid_wm[1] -= dist*0.5
-    return {"year": year, 
-            "org": org.lower(),
-            "org_wm": org_wm,
-            "dst_wm": dst_wm,
-            "dst": dst.lower(),
-            "mid_wm": mid_wm,
-            "mid_offset": mid_offset,
-            "export_val": val
-            }
-
 def to_json(col, fname):
     with open(fname, "w") as f:
         json.dump(col, f)
@@ -56,9 +25,41 @@ def find_name(name, features):
     else:
         return None
 
-def create_python_flowmap(dataframe, origin, destination, value_column, date_column, centroids_json, output_dir):
+def create_python_flowmap(dataframe, origin, destination, value_column, date_column, projected_coordinate_system, centroids_geojson ,centroids_json, output_dir):
+
+    def process_row(row):
+        year, org, dst, val = row                
+        org_wm = centroids_by_iso_alpha_3[org][projected_coordinate_system]
+        dst_wm = centroids_by_iso_alpha_3[dst][projected_coordinate_system]
+        mid_wm = [((dst_wm[0] + org_wm[0]) / 2), ((dst_wm[1] + org_wm[1]) / 2)]  
+        mid_offset = [0,0]                
+        dist = math.sqrt(math.pow(dst_wm[0] - org_wm[0],2) +  math.pow(dst_wm[1] - org_wm[1],2))
+        if abs(dst_wm[1] - org_wm[1]) > abs(dst_wm[0] - org_wm[0]):
+            if dst_wm[1] > org_wm[1]:
+                mid_offset[0] = 1
+                mid_wm[0] += dist*0.5
+            else:
+                mid_offset[0] = -1
+                mid_wm[0] -= dist*0.5
+        else:
+            if dst_wm[0] < org_wm[0]:
+                mid_offset[1] = 1   
+                mid_wm[1] += dist*0.5
+            else: 
+                mid_offset[1] = -1
+                mid_wm[1] -= dist*0.5
+        return {"year": year, 
+                "org": org.lower(),
+                "org_wm": org_wm,
+                "dst_wm": dst_wm,
+                "dst": dst.lower(),
+                "mid_wm": mid_wm,
+                "mid_offset": mid_offset,
+                "export_val": val
+                }
+
     raw_data = []
-    with open(dataframe+".csv", encoding="utf8") as f:
+    with open(dataframe+".csv") as f:
         reader = csv.DictReader(f,delimiter=",")
         for row in reader:
             raw_data.append(row)
@@ -76,7 +77,7 @@ def create_python_flowmap(dataframe, origin, destination, value_column, date_col
             names.append(dst)
 
 
-    with open("country-centroids.geojson") as f:
+    with open(centroids_geojson) as f:
         centroids = json.load(f)
 
     with open(centroids_json) as f:
@@ -161,7 +162,3 @@ def create_python_flowmap(dataframe, origin, destination, value_column, date_col
     #fname
 
     #!rsync -rcav ../data/dataframe_name_database USERNAME@HOSTNAME:/FILE_PATH
-
-
-
-
