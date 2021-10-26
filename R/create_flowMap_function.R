@@ -29,9 +29,9 @@ create_flowMap <-  function(dataframe, origin, destination, value_column, date_c
   write.csv(dataframe, paste0(obj_name, ".csv"), row.names = FALSE, na = "")
   
   #The moment it clicked: http://www.mjdenny.com/R_Package_Pictorial.html
-  #path <- paste(system.file("python",package="EarthTimeR"), "flowmap_via_reticulate.py", sep="/")
+  path <- paste(system.file("python",package="EarthTimeR"), "flowmap_via_reticulate.py", sep="/")
   
-  reticulate::source_python("flowmap_via_reticulate.py")
+  reticulate::source_python(path)
   create_python_flowmap(obj_name, origin, destination, value_column, date_column, projected_coordinate_system, centroids_geojson, centroids_json, output_dir)
   
   invisible(file.remove(paste0(obj_name, ".csv")))
