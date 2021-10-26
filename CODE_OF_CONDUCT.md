@@ -82,37 +82,71 @@ Community Impact Guidelines were inspired by [Mozilla's code of conduct enforcem
 
 For answers to common questions about this code of conduct, see the FAQ at
 https://www.contributor-covenant.org/faq. The following translations are available at https://www.contributor-covenant.org/translations:
+
 [English Version: 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md)
+
 [Català Version: 2](https://www.contributor-covenant.org/ca/version/2/0/code_of_conduct/code_of_conduct.md)
+
 [Deutsch Version: 2](https://www.contributor-covenant.org/de/version/2/0/code_of_conduct/code_of_conduct.md)
+
 [Español Version: 2](https://www.contributor-covenant.org/es/version/2/0/code_of_conduct/code_of_conduct.md)
+
 [Français Version: 2](https://www.contributor-covenant.org/fr/version/2/0/code_of_conduct/code_of_conduct.md)
+
 [Indonesian Version: 2](https://www.contributor-covenant.org/id/version/2/0/code_of_conduct/code_of_conduct.md)
+
 [Italiano Version: 2](https://www.contributor-covenant.org/it/version/2/0/code_of_conduct/code_of_conduct.md)
+
 [日本語 Version: 2](https://www.contributor-covenant.org/ja/version/2/0/code_of_conduct/code_of_conduct.md)
+
 [한국어 Version: 2](https://www.contributor-covenant.org/ko/version/2/0/code_of_conduct/code_of_conduct.md)
+
 [Nederlands Version: 2](https://www.contributor-covenant.org/nl/version/2/0/code_of_conduct/code_of_conduct.md)
+
 [Português do Brasil Version: 2](https://www.contributor-covenant.org/pt-br/version/2/0/code_of_conduct/code_of_conduct.md)
+
 [Русский Version: 2](https://www.contributor-covenant.org/ru/version/2/0/code_of_conduct/code_of_conduct.md)
+
 [Türkçe Version: 2](https://www.contributor-covenant.org/tr/version/2/0/code_of_conduct/code_of_conduct.md)
+
 [简体中文 Version: 2](https://www.contributor-covenant.org/zh-cn/version/2/0/code_of_conduct/code_of_conduct.md)
+
 [العربية Version: 1.4](https://www.contributor-covenant.org/ar/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [Bengali Version: 1.4](https://www.contributor-covenant.org/bn/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [Bosnian Version: 1.4](https://www.contributor-covenant.org/bs/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [ελληνικά Version: 1.4](https://www.contributor-covenant.org/el/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [فارسی Version: 1.4](https://www.contributor-covenant.org/fa-ir/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [ગુજરાતી Version: 1.4](https://www.contributor-covenant.org/gu/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [हिंदी Version: 1.4](https://www.contributor-covenant.org/hi/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [Magyar Version: 1.4](https://www.contributor-covenant.org/hu/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [Íslenska Version: 1.4](https://www.contributor-covenant.org/is/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [עברית Version: 1.4](https://www.contributor-covenant.org/iw/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [ಕನ್ನಡ Version: 1.4](https://www.contributor-covenant.org/kn/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [Македонски Version: 1.4](https://www.contributor-covenant.org/mk/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [मराठी Version: 1.4](https://www.contributor-covenant.org/mr/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [Polski Version: 1.4](https://www.contributor-covenant.org/pl/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [Português Version: 1.4](https://www.contributor-covenant.org/pt/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [Română Version: 1.4](https://www.contributor-covenant.org/ro/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [Slovenščina Version: 1.4](https://www.contributor-covenant.org/sl/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [Svenska Version: 1.4](https://www.contributor-covenant.org/sv/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [Українська Version: 1.4](https://www.contributor-covenant.org/uk/version/1/4/code-of-conduct/code_of_conduct.md)
+
 [繁體中文 Version: 1.4](https://www.contributor-covenant.org/zh-tw/version/1/4/code-of-conduct/code_of_conduct.md)
