@@ -10,13 +10,14 @@ create_flowMap(
   destination,
   value_column,
   date_column,
-  centroids_json = "centroids_by_iso_alpha_3.json",
   projected_coordinate_system = "epsg_3857",
+  centroids_geojson = "country-centroids.geojson",
+  centroids_json = "centroids_by_iso_alpha_3.json",
   output_dir = getwd()
 )
 }
 \arguments{
-\item{dataframe}{Specify the name of the dataframe that you'd like to transform into a dot map .bin file.}
+\item{dataframe}{Specify the name of the dataframe that you'd like to transform into a dot map .json file.}
 
 \item{origin}{Specify the column name (in quotes) that contains the latitudinal coordinates.}
 
@@ -26,14 +27,16 @@ create_flowMap(
 
 \item{date_column}{Specify the column name (in quotes) that contains the date category.}
 
-\item{centroids_json}{Defaults to "centroids_by_iso_alpha_3.json" included with the package.}
-
 \item{projected_coordinate_system}{A flat, two-dimensional representation of the Earth based on a sphere or spheroid geographic coordinate system, but it uses linear units of measure for coordinates, so that calculations of distance and area are easily done in terms of those same units. Defaults to EPSG:3857 (WGS 84 / Pseudo-Mercator) used for rendering maps in Spherical Mercator, Google Maps, OpenStreetMap, Bing, ArcGIS, ESRI, etc.}
 
-\item{output_dir}{Output director for .bin file. Defaults to current working directory.}
+\item{centroids_geojson}{Defaults to "country-centroids.geojson" included with the package.}
+
+\item{centroids_json}{Defaults to "centroids_by_iso_alpha_3.json" included with the package.}
+
+\item{output_dir}{Output director for .json file. Defaults to current working directory.}
 }
 \description{
-This function creates a flow map from a dataframe. It will output a .bin file in your working directory for you to later push to a specific EarthTime instance.
+This function creates a flow map from a dataframe. It will output a .json file in your working directory for you to later push to a specific EarthTime instance.
 }
 \examples{
 \dontrun{
