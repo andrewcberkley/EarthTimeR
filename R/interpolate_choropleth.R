@@ -2,7 +2,7 @@
 #'
 #' While most interpolation functions are performed on "long" dataframes, this function performs interpolation of missing values on a choropleth style dataframe or any type of "wide" dataframe.
 
-#' @param dataframe Specify the name of the dataframe that you'd like to transform into a dot map .json file.
+#' @param dataframe Specify the name of the dataframe that you'd like to interpolate.
 #' @param name_key Specify the column name (in quotes) that serves as the "key" for your dataframe. For a dataframe formatted in a "wide" choropleth style for EarthTime, this will often be the first column with the place names.
 #' @param start_year  Specify the year the data begins. Due to the nature of the function, it is highly recommended that that date intervals are in years rather than days or months.
 #' @param end_year Specify the year the data ends. Due to the nature of the function, it is highly recommended that that date intervals are in years rather than days or months.
