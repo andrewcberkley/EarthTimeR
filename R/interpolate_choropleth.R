@@ -31,6 +31,8 @@ interpolate_choropleth <- function(dataframe, start_year, end_year, time_interva
   #https://stackoverflow.com/questions/7193109/how-can-i-get-adjacent-pairs-of-combination-using-r
   list_edges <- embed(time_intervals, 2)[, 2:1] #This "embeds" the time intervals into a low-dimensional Euclidean space.
   
-  interpolation_function(dataframe, interpolation_rule)
+  interpolated_df <- interpolation_function(dataframe, interpolation_rule)
+  
+  return(interpolated_df[,c_names])
 
 }
