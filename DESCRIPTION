@@ -22,7 +22,8 @@ Imports:
   gargle,
   crayon,
   stringr,
-  reticulate
+  reticulate,
+  zoo
 Suggests:
   tidyverse,
   readr
