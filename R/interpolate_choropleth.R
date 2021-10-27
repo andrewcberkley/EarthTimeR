@@ -3,6 +3,7 @@
 #' While most interpolation functions are performed on "long" dataframes, this function performs interpolation of missing values on a choropleth style dataframe or any type of "wide" dataframe.
 
 #' @param dataframe Specify the name of the dataframe that you'd like to transform into a dot map .json file.
+#' @param name_key Specify the column name (in quotes) that serves as the "key" for your dataframe. For a dataframe formatted in a "wide" choropleth style for EarthTime, this will often be the first column with the place names.
 #' @param start_year  Specify the year the data begins. Due to the nature of the function, it is highly recommended that that date intervals are in years rather than days or months.
 #' @param end_year Specify the year the data ends. Due to the nature of the function, it is highly recommended that that date intervals are in years rather than days or months.
 #' @param time_intervals A vector of all the dataframe's time intervals that will be used as reference points for the interpolation function. Use, e.g., `time_intervals = c(2002, 2007, 2011, 2013, 2019)
@@ -11,14 +12,14 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' interpolated_df <- interpolate_choropleth(dataframe, start_year, end_year, time_intervals, interpolation_rule)
+#' interpolated_df <- interpolate_choropleth(dataframe, name_key, start_year, end_year, time_intervals, interpolation_rule)
 #'}
 
-interpolate_choropleth <- function(dataframe, start_year, end_year, time_intervals, interpolation_rule = 1){
+interpolate_choropleth <- function(dataframe, name_key, start_year, end_year, time_intervals, interpolation_rule = 1){
 
-  #source("utils.R")
+  source("utils.R")
   
-  c_names <- c("key", start_year:end_year)
+  c_names <- c(name_key, start_year:end_year)
   
   #list_edges <- rbind(
   #  cbind(2002, 2007),
