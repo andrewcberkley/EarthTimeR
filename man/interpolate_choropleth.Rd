@@ -14,7 +14,7 @@ interpolate_choropleth(
 )
 }
 \arguments{
-\item{dataframe}{Specify the name of the dataframe that you'd like to transform into a dot map .json file.}
+\item{dataframe}{Specify the name of the dataframe that you'd like to interpolate.}
 
 \item{name_key}{Specify the column name (in quotes) that serves as the "key" for your dataframe. For a dataframe formatted in a "wide" choropleth style for EarthTime, this will often be the first column with the place names.}
 
