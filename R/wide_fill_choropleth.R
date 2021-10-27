@@ -11,10 +11,10 @@
 #'}
 
 fill_choropleth <- function(dataframe){
+  dataframe_subset <- dataframe[,-c(1)]
+  dataframe_filled <- t(apply(dataframe_subset, 1, function(x) zoo::na.locf(x, fromLast = F, na.rm = F)))
+  dataframe_key <- dataframe[,c(1)]
+  wide_final <- cbind(dataframe_key, dataframe_filled)
 
-dataframe_subset <- dataframe[,-c(1)]
-dataframe_filled <- t(apply(dataframe_subset, 1, function(x) zoo::na.locf(x, fromLast = F, na.rm = F)))
-dataframe_key <- dataframe[,c(1)]
-wide_final <- cbind(dataframe_key, dataframe_filled)
-
+  return(wide_final)
 }
