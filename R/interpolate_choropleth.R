@@ -6,7 +6,7 @@
 #' @param start_year  Specify the year the data begins. Due to the nature of the function, it is highly recommended that that date intervals are in years rather than days or months.
 #' @param end_year Specify the year the data ends. Due to the nature of the function, it is highly recommended that that date intervals are in years rather than days or months.
 #' @param time_intervals A vector of all the dataframe's time intervals that will be used as reference points for the interpolation function. Example: c(2002, 2007, 2011, 2013, 2019)
-#' @param interpolation_type The level of interpolation for the data. Defaults to "linear"..
+#' @param interpolation_rule An integer (of length 0 or 1) describing how interpolation is to take place outside the interval (min(x), max(x)). If rule is 0 then NAs are returned for such points and if it is 1, the value at the closest data extreme is used. Defaults to 1.
 #' @keywords linear interpolation
 #' @export
 #' @examples
@@ -14,7 +14,7 @@
 #' interpolated_df <- interpolate_choropleth(dataframe, start_year, end_year, time_intervals, interpolation_type)
 #'}
 
-interpolate_choropleth <- function(dataframe, start_year, end_year, time_intervals, interpolation_type = "linear"){
+interpolate_choropleth <- function(dataframe, start_year, end_year, time_intervals, interpolation_rule = 1){
 
   choropleth_linear_interpolate0 <- function(y1, y2, side) {
   if (side==0) {return(y1)}
