@@ -3,10 +3,10 @@
 #' While most cases required a choropleth or bubble style "wide" dataframe for ingestion into EarthTime, a few special map types in EarthTime (i.e. - line strings, point flows, points, and raster maps) need to be formatted as "long" dataframes types before using create_dotMap() and/or create_flowMap() to generate a .bin  file. This function transforms the dataframe in an appropriate format to successfully utilize the aforementioned functions.
 
 #' @param dataframe Specify the name of the dataframe that you'd like to transform.
-#' @param dotMap_latitude
-#' @param dotMap_longitude
-#' @param flowMap_origin Specify the name (in quotes) of the origin location. You can always specify this again while invoking the create_flowMap() function.
-#' @param flowMap_destination Specify the name (in quotes) of the final destination. You can always respecify this while invoking the create_flowMap() function.
+#' @param dotMap_latitude Specify the name (in quotes) of the latitude column. You can always specify this again while invoking the create_dotMap() function. This parameter is best used when dealing with a normal "wide" style dataframe.
+#' @param dotMap_longitude Specify the name (in quotes) of the longitude column. You can always specify this again while invoking the create_dotMap() function. This parameter is best used when dealing with a normal "wide" style dataframe.
+#' @param flowMap_origin Specify the name (in quotes) of the origin location. You can always specify this again while invoking the create_dotMap() function. This parameter is best used when dealing with a matrix style dataframe.
+#' @param flowMap_destination Specify the name (in quotes) of the final destination. You can always specify this again while invoking the create_flowMap() function. This parameter is best used when dealing with a matrix style dataframe.
 #' @param value_name
 #' @param value_columns A vector of all the dataframe's time intervals that will be used as reference points for the interpolation function. Use, e.g., value_columns = c(3:223)
 #' @keywords transform long dataframe special map
