@@ -19,14 +19,16 @@
 #' long_df_flowMap <- specialMapTransform(dataframe, flowMap_origin, flowMap_destination, value_name)
 #'}
 
-specialMapTransform <- function(dataframe, dotMap_latitude = NULL, dotMap_longitude = NULL, flowMap_origin = NULL, flowMap_destination = NULL, value_name, value_columns){
+specialMapTransform <- function(dataframe, dotMap_latitude = NULL, dotMap_longitude = NULL, flowMap_origin = NULL, flowMap_destination = NULL, value_name, value_columns = NULL){
   
   if(dotMap_latitude==!NULL && dotMap_longitude==!NULL ){
     
-    data_long_dotMap <- tidyr::gather(dataframe, dotMap_latitude, value_name, value_columns, factor_key = TRUE)
-    colnames(data_long_dotMap)[2] <- dotMap_latitude
-    colnames(data_long_dotMap)[3] <- dotMap_longitude
-    colnames(data_long_dotMap)[4] <- value_name
+    data_long_dotMap <- data.table::melt(setDT(dataframe), id.vars = c(dotMap_latitude,dotMap_longitude), variable.name = value_name)
+    
+    #data_long_dotMap <- tidyr::gather(dataframe, dotMap_latitude, value_name, value_columns, factor_key = TRUE)
+    #colnames(data_long_dotMap)[2] <- dotMap_latitude
+    #colnames(data_long_dotMap)[3] <- dotMap_longitude
+    #colnames(data_long_dotMap)[4] <- value_name
     
     return(data_long_dotMap)
   }
