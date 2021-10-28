@@ -14,7 +14,7 @@
 #' long_df <- longTransform <- function(dataframe, origin_name, destination_name, value_name)
 #'}
 
-longTransform <- function(dataframe, origin_name, destination_name, value_name){
+longTransform <- function(dataframe, origin_name, destination_name, value_name, value_columns){
   data_long <- tidyr::gather(dataframe, origin_name, value_name, value_columns, factor_key = TRUE)
   colnames(data_long)[2] <- destination_name
 
