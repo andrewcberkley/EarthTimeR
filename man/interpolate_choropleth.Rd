@@ -22,7 +22,7 @@ interpolate_choropleth(
 
 \item{end_year}{Specify the year the data ends. Due to the nature of the function, it is highly recommended that that date intervals are in years rather than days or months.}
 
-\item{time_intervals}{A vector of all the dataframe's time intervals that will be used as reference points for the interpolation function. Use, e.g., `time_intervals = c(2002, 2007, 2011, 2013, 2019)}
+\item{time_intervals}{A vector of all the dataframe's time intervals that will be used as reference points for the interpolation function. Use, e.g., time_intervals = c(2002, 2007, 2011, 2013, 2019)}
 
 \item{interpolation_rule}{An integer (of length 0 or 1) describing how interpolation is to take place outside the interval (min(x), max(x)). If rule is 0 then NAs are returned for such points and if it is 1, the value at the closest data extreme is used. Defaults to 1.}
 }
