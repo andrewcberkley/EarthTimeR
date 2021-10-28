@@ -1,26 +1,26 @@
 #' A Long Transform for Special Map Type Function
 #'
-#' While most cases required a choropleth or bubble style "wide" dataframe for ingestion into EarthTime, a few special map types in EarthTime (i.e. - line strings, point flows, points, and raster maps) need to be formatted as "long" dataframes types before using create_dotMap() and/or create_flowMap() to generate a .bin  file. This function transforms the dataframe in an appropriate format to successfully utilize the aforementioned functions.
+#' While most cases required a choropleth or bubble style "wide" dataframe for ingestion into EarthTime, a few special map types in EarthTime (i.e. - line strings, point flows, points, and raster maps) need to be formatted as "long" dataframes types before using create_dotMap() and/or create_flowMap() to generate a .bin  file. This function transforms the dataframe in an appropriate format to successfully utilize the aforementioned functions. Use the dotMap_... and flowMap_... parameters to transform the data for Dot Maps and Flow Maps, respectively. 
 
 #' @param dataframe Specify the name of the dataframe that you'd like to transform.
 #' @param dotMap_latitude Specify the name (in quotes) of the latitude column. You can always specify this again while invoking the create_dotMap() function. This parameter is best used when dealing with a normal "wide" style dataframe in instances where both the location values as columns.
 #' @param dotMap_longitude Specify the name (in quotes) of the longitude column. You can always specify this again while invoking the create_dotMap() function. This parameter is best used when dealing with a normal "wide" style dataframe in instances where  both the location values as columns..
 #' @param flowMap_origin Specify the name (in quotes) of the origin location. You can always specify this again while invoking the create_dotMap() function. This parameter is best used when dealing with a matrix style dataframe in instances where one location value is a single column (down) and the other location value are the column headers (across).
 #' @param flowMap_destination Specify the name (in quotes) of the final destination. You can always specify this again while invoking the create_flowMap() function. This parameter is best used when dealing with a matrix style dataframe in instances where one location value is a single column (down) and the other location value are the column headers (across).
-#' @param dotMap_dateName
-#' @param flowMap_value_name
-#' @param value_columns A vector of all the dataframe's time intervals that will be used as reference points for the interpolation function. Use, e.g., value_columns = c(3:223)
-#' @keywords transform long dataframe special map
+#' @param dotMap_dateName Specify the name (in quotes) of what you would like to call the date column in the transformed dataframe.
+#' @param flowMap_valueName Specify the name (in quotes) of what you would like to call the value column in the transformed dataframe.
+#' @param value_columns A concatenated vector of the pre-transformed dataframe's date columns. Use, e.g., value_columns = c(3:223)
+#' @keywords transform long dataframe special dot map flow map
 #' @export
 #' @examples
 #' \dontrun{
 #' long_df_dotMap <- specialMapTransform(dataframe, dotMap_latitude, dotMap_longitude, dotMap_dateName)
 #'}
 #' \dontrun{
-#' long_df_flowMap <- specialMapTransform(dataframe, flowMap_origin, flowMap_destination, flowMap_value_name, flowMap_value_columns)
+#' long_df_flowMap <- specialMapTransform(dataframe, flowMap_origin, flowMap_destination, flowMap_valueName, flowMap_valueColumns)
 #'}
 
-specialMapTransform <- function(dataframe, dotMap_latitude = NULL, dotMap_longitude = NULL, dotMap_dateName = NULL, flowMap_origin = NULL, flowMap_destination = NULL, flowMap_value_name, flowMap_value_columns = NULL){
+specialMapTransform <- function(dataframe, dotMap_latitude = NULL, dotMap_longitude = NULL, dotMap_dateName = NULL, flowMap_origin = NULL, flowMap_destination = NULL, flowMap_valueName = NULL, flowMap_valueColumns = NULL){
   
   if(!is.null(dotMap_latitude) && !is.null(dotMap_longitude)){
     
@@ -34,10 +34,10 @@ specialMapTransform <- function(dataframe, dotMap_latitude = NULL, dotMap_longit
   }
   else{
     
-    data_long_flowMap <- tidyr::gather(dataframe, flowMap_origin, value_name, value_columns, factor_key = TRUE)
+    data_long_flowMap <- tidyr::gather(dataframe, flowMap_origin, flowMap_valueName, all_of(flowMap_valueColumns), factor_key = TRUE)
     colnames(data_long_flowMap)[2] <- flowMap_origin
     colnames(data_long_flowMap)[3] <- flowMap_destination
-    colnames(data_long_flowMap)[4] <- value_name
+    colnames(data_long_flowMap)[4] <- flowMap_valueName
     
     return(data_long_flowMap)
   }
