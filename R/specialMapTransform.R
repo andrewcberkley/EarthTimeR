@@ -21,9 +21,13 @@
 
 specialMapTransform <- function(dataframe, dotMap_latitude = NULL, dotMap_longitude = NULL, flowMap_origin = NULL, flowMap_destination = NULL, value_name, value_columns = NULL){
   
-  if(dotMap_latitude==!NULL && dotMap_longitude==!NULL ){
+  if(!is.null(dotMap_latitude) && !is.null(dotMap_longitude)){
     
-    data_long_dotMap <- data.table::melt(setDT(dataframe), id.vars = c(dotMap_latitude,dotMap_longitude), variable.name = value_name)
+    dataTable_long_dotMap <- data.table::melt(
+      data.table::setDT(dataframe), id.vars = c(dotMap_latitude,dotMap_longitude), variable.name = value_name
+      )
+    
+    data_long_dotMap <- as.data.frame(dataTable_long_dotMap)
     
     #data_long_dotMap <- tidyr::gather(dataframe, dotMap_latitude, value_name, value_columns, factor_key = TRUE)
     #colnames(data_long_dotMap)[2] <- dotMap_latitude
