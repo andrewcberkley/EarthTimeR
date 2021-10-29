@@ -22,12 +22,12 @@ library(EarthTimeR)
 
 `EarthTimeR` has four groups of functions:
 
-* Sign-in to Google Sheets to push data;
-* Wrangling data for use as data layers in EarthTime stories;
-* Statistical techniques for handling missing values;
-* Python wrappers for creation of special map types.
+* Convenience functions for pushing data Google Sheets;
+* Data wrangling functions for creating and formating EarthTime data layers;
+* Functions for invoking statistical techniques for handling missing values;
+* Python wrapper functions to aid in the generation of special map types.
 
-For a complete overview of those groups, users can check out tutorials [here](https://github.com/andrewcberkley/EarthTimeR/blob/master/vignettes/Introduction.md).
+For a complete overview of the aforementioned function groups, users can check out tutorials [here](https://github.com/andrewcberkley/EarthTimeR/blob/master/vignettes/Introduction.md).
 
 ## Getting Started
 
@@ -35,7 +35,7 @@ To get started working with `EarthTimeR`, users should be associated with the [C
 
 As noted, the function sets one's default EarthTime `spreadsheetId` and `sheetId` in the current R environment. Thus, users should only repeat this operation if changing R environments in which they intend to use the `EarthTimeR` package or if their default EarthTime spreadsheet changes. *We stress that EarthTime `spreadsheetId` and `sheetId` are personal; therefore, users should be careful when writing and saving them in R scripts, in order to avoid sharing these information*.
 
-## Auth
+## Authorization
 
 It is highly recommend that users install the [`tidyverse`](https://www.tidyverse.org/) opinionated collection of R packages designed for data science as these packages provide the foundation for the `EarthTimeR` package and thus share an underlying approach design philosophy, grammar, and data structures; moreover, to interact with your EarthTime layers sheet, the `EarthTimeR` package draws specifically on functions found in the `googledrive` and `googlesheets4` packages.
 
@@ -43,7 +43,7 @@ It is highly recommend that users install the [`tidyverse`](https://www.tidyvers
 
 Another reason `EarthTimeR` was built on top of the `googlesheets4` and `googledrive` packages together is for ease of file (Sheet) identification. The `googlesheets4` package requires you to specify the target Sheet by its ID, not by its name. That’s because the underlying APIs only accept file IDs. But the `googledrive package` offers lots of support for navigating between human-friendly file names and their associated IDs. This support applies to all files on Drive and, specifically, to Sheets.
 
-Therefore, it was on natural to use both `googledrive` and `googlesheets4` together when building the `EarthTimeR' package.
+Therefore, it was only natural to use both `googledrive` and `googlesheets4` together when building the `EarthTimeR' package.
 
 After getting started with establishing your EarthTime layers sheet using the `set_EarhTime_csv_layers` function, it is recommend that you first attach both aforementioned packages.
 
