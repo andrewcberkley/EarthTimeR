@@ -2,8 +2,8 @@
 
 export(append_new_data_layer_to_CSV_layers)
 export(choropleth)
-export(create_dotMap)
 export(create_flowMap)
+export(create_pointMap)
 export(fill_choropleth)
 export(generate_csv_layer_row)
 export(initial_ingestion)
