@@ -36,7 +36,7 @@ create_pointMap <-  function(dataframe, latitude_column, longitude_column, value
   path <- paste(system.file("python",package="EarthTimeR"), "pointmap_via_reticulate.py", sep="/")
   
   reticulate::source_python(path)
-  create_python_pointMap(obj_name, latitude_column, longitude_column, value_column, date_column, date_format, red, green, blue)
+  create_python_pointmap(obj_name, latitude_column, longitude_column, value_column, date_column, date_format, red, green, blue)
   
   invisible(file.remove(paste0(obj_name, ".csv")))
   
