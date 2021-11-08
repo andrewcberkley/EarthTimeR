@@ -19,7 +19,7 @@ def PackColor(color):
 def hex2rgb(h):
   return tuple(int(h.strip("#")[i:i+2], 16) for i in (0, 2 ,4))
 
-def create_python_dotmap(dataframe, latitude_column, longitude_column, value_column, date_column, date_format, red, green, blue):
+def create_python_pointmap(dataframe, latitude_column, longitude_column, value_column, date_column, date_format, red, green, blue):
   raw_data = []
   with open(dataframe+".csv", encoding="utf8") as f:
     reader = csv.DictReader(f, delimiter=",")
