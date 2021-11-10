@@ -18,6 +18,7 @@
 interpolate_choropleth <- function(dataframe, name_key, start_year, end_year, time_intervals, interpolation_rule = 1){
 
   #source("utils.R")
+  #Sourcing is not required within a package since there must be kinda "lazy evaluation" (just parsing) of the objects you create that postpones the evaluation until you really call the functions of a package (which is a library = collection of functions that wait to be called from outside). Hadley Wickham explains the background in his book R packages in the section "Top-level code".
   
   c_names <- c(name_key, start_year:end_year)
   
