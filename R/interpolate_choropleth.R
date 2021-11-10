@@ -17,8 +17,7 @@
 
 interpolate_choropleth <- function(dataframe, name_key, start_year, end_year, time_intervals, interpolation_rule = 1){
 
-  path <- paste(system.file("R",package="EarthTimeR"), "utils.R", sep="/")
-  source(path)
+  #source("utils.R")
   
   c_names <- c(name_key, start_year:end_year)
   
