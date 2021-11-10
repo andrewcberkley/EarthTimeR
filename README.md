@@ -23,11 +23,11 @@ library(EarthTimeR)
 `EarthTimeR` has four groups of functions:
 
 * Convenience functions for pushing data Google Sheets;
-* Data wrangling functions for creating and formating EarthTime data layers;
+* Data wrangling functions for creating and formatting EarthTime data layers;
 * Functions for invoking statistical techniques for handling missing values;
 * Python wrapper functions to aid in the generation of special map types.
 
-For a complete overview of the aforementioned function groups, users can check out tutorials [here](https://github.com/andrewcberkley/EarthTimeR/blob/master/vignettes/Introduction.md).
+For a complete overview of the aforementioned function groups, users can check out tutorials coming soon.
 
 ## Getting Started
 
