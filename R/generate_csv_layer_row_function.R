@@ -2,7 +2,7 @@
 #'
 #' Generally used after the overwrite_sheet_function(), the generate_csv_layer_row() function allows for the generation of a new data layer for input into the EarthTime CSV layers sheet. This function is usually followed up by append_new_data_layer_to_CSV_layers().
 
-#' @param Enabled_Share_Link_Identifier Determines if the data layers appears in the Explore view of EarthTime. Defaults to TRUE
+#' @param Enabled_Share_Link_Identifier Determines if the data layers appears in the Explore view of EarthTime. Defaults to TRUE.
 #' @param Category Name of the data layer's category
 #' @param Name Name of the data layer. Defaults to the dataframe's name
 #' @param Credits Citation for the data layers
