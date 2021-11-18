@@ -2,7 +2,8 @@
 #'
 #' Generally used after the overwrite_sheet_function(), the generate_csv_layer_row() function allows for the generation of a new data layer for input into the EarthTime CSV layers sheet. This function is usually followed up by append_new_data_layer_to_CSV_layers().
 
-#' @param Enabled_Share_Link_Identifier Determines if the data layers appears in the Explore view of EarthTime. Defaults to TRUE.
+#' @param Enabled Determines if the data layers appears in the Explore view of EarthTime. Defaults to TRUE.
+#' @param Share_Link_Identifier This is the unique identifier that will be issued to the data layer. Please ensure that there are no other data layers with the same name; otherwise, it will cause conflicts and normal functioning and operation of the EarthTime will be impacted. 
 #' @param Category Name of the data layer's category
 #' @param Name Name of the data layer. Defaults to the dataframe's name
 #' @param Credits Citation for the data layers
@@ -55,11 +56,11 @@
 #' @examples
 #' append_new_data_layer_to_CSV_layers()
 
-generate_csv_layer_row  <- function(Enabled_Share_Link_Identifier = TRUE, Share_Link_Identifier, Category,	Name,	Credits, Base_Layer = NA, Custom_slider_ticks = NA,	Start_Date,	End_Date,	Step = 1,	URL, Scaling, Color_Scaling = NA,	Map_Type,	Color,	External_GeoJSON = NA,	Name_Key = NA,	Show_Graph = NA,	Graph_Title = NA,	Graph_Plot_Colors = NA,	Graph_Plots_First_Visible = NA,	Graph_X_Axis_Label = NA,	Graph_Y_Axis_Label = NA,	Graph_Y_Axis_Min = NA,	Graph_Y_Axis_Max = NA,	Graph_X_Axis_Label_Interval = NA,	Legend_Content = "auto", Legend_Key, Load_Data_Function = NA,	Set_Data_Function = NA,	Number_of_Levels = NA, Number_of_Attributes = NA,	Vertex_Shader = NA,	Fragment_Shader = NA,	Draw_Function = NA,	Playback_Rate = 1,	Master_Playback_Rate = 1,	Colormap_Src, Layer_Description = NA, Featured_Themes = NA,	Draw_Options = NA, Set_Data_Options = NA, Extras_Options = NA,	Draw_Order = NA, Timeline_Type = NA, Layer_Constraints = NA,	Mapbox = NA, Draw_Layer_Function = NA){
+generate_csv_layer_row  <- function(Enabled = TRUE, Share_Link_Identifier, Category,	Name,	Credits, Base_Layer = NA, Custom_slider_ticks = NA,	Start_Date,	End_Date,	Step = 1,	URL, Scaling, Color_Scaling = NA,	Map_Type,	Color,	External_GeoJSON = NA,	Name_Key = NA,	Show_Graph = NA,	Graph_Title = NA,	Graph_Plot_Colors = NA,	Graph_Plots_First_Visible = NA,	Graph_X_Axis_Label = NA,	Graph_Y_Axis_Label = NA,	Graph_Y_Axis_Min = NA,	Graph_Y_Axis_Max = NA,	Graph_X_Axis_Label_Interval = NA,	Legend_Content = "auto", Legend_Key, Load_Data_Function = NA,	Set_Data_Function = NA,	Number_of_Levels = NA, Number_of_Attributes = NA,	Vertex_Shader = NA,	Fragment_Shader = NA,	Draw_Function = NA,	Playback_Rate = 1,	Master_Playback_Rate = 1,	Colormap_Src, Layer_Description = NA, Featured_Themes = NA,	Draw_Options = NA, Set_Data_Options = NA, Extras_Options = NA,	Draw_Order = NA, Timeline_Type = NA, Layer_Constraints = NA,	Mapbox = NA, Draw_Layer_Function = NA){
   
   dat <- as.data.frame(matrix(ncol=46, nrow=1))
   
-  dat <- data.frame(Enabled_Share_Link_Identifier,
+  dat <- data.frame(Enabled,
                     Share_Link_Identifier,
                     Category,	
                     Name,	
