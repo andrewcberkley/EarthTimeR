@@ -5,7 +5,7 @@
 \title{A Generating Row for CSV Layer Function}
 \usage{
 generate_csv_layer_row(
-  Enabled_Share_Link_Identifier = TRUE,
+  Enabled = TRUE,
   Share_Link_Identifier,
   Category,
   Name,
@@ -56,7 +56,9 @@ generate_csv_layer_row(
 )
 }
 \arguments{
-\item{Enabled_Share_Link_Identifier}{Determines if the data layers appears in the Explore view of EarthTime. Defaults to TRUE}
+\item{Enabled}{Determines if the data layers appears in the Explore view of EarthTime. Defaults to TRUE.}
+
+\item{Share_Link_Identifier}{This is the unique identifier that will be issued to the data layer. Please ensure that there are no other data layers with the same name; otherwise, it will cause conflicts and normal functioning and operation of the EarthTime will be impacted.}
 
 \item{Category}{Name of the data layer's category}
 
