@@ -1,6 +1,6 @@
 # Getting help with EarthTimeR
 
-Thanks for using EarthTimeR!
+Thanks so much for using EarthTimeR!
 Before filing an issue, there are a few places to explore and pieces to put together to make the process as smooth as possible.
 
 ## Make a reprex
